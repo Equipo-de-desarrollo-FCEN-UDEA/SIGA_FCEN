@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, Boolean
+from sqlalchemy import Column, ForeignKey, String, Integer, Boolean
 from sqlalchemy.orm import relationship
 
 from app.infraestructure.db.utils.model import BaseModel
@@ -17,3 +17,6 @@ class User(BaseModel):
     # relations
     
     user_rol = relationship("UserRol", back_populates="user")
+
+    department_id = Column(Integer, ForeignKey("department.id"))
+    department = relationship("Department", back_populates="users")
