@@ -1,20 +1,6 @@
 version: '3.9'
 
 services:
-    postgres-db-auth:
-        build:
-            context: ../config_db
-            dockerfile: Dockerfile
-        volumes:
-            - ../db/postgres:/var/lib/postgresql/data
-        ports:
-            - "5434:5432"
-        environment:
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
-        networks:
-            - auth-network
-
     backend-auth:
         build:
             context: ..
@@ -31,6 +17,22 @@ services:
         depends_on:
             - postgres-db-auth
         restart: on-failure
+
+    postgres-db-auth:
+        build:
+            context: ../config_db
+            dockerfile: Dockerfile
+        volumes:
+            - ../db/postgres:/var/lib/postgresql/data
+        ports:
+            - "5434:5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        networks:
+            - auth-network
+
+    
 
 networks:
     auth-network:
