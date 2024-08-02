@@ -2,7 +2,7 @@ from datetime import date
 from typing import Generic, TypeVar, Any
 
 from app.protocols.db.crud.base import CRUDProtocol
-# from app.protocols.db.models.user import User
+
 from app.schemas.model import CreateSchemaType, UpdateSchemaType
 
 
