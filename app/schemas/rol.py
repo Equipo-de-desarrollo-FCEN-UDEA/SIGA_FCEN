@@ -4,7 +4,7 @@ from app.schemas.model import GeneralResponse
 
 class RolBase(BaseModel):
     name:str
-    description:str | None
+    description:str
     
 class RolCreate(RolBase):
     ...
