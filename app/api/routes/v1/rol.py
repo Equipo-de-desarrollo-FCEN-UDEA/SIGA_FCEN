@@ -7,6 +7,7 @@ router = APIRouter()
 
 @router.post("", response_model=RolInDB, status_code=201)
 def create_rol(*, new_rol: RolCreate) -> RolInDB:
+    print(new_rol)
     rol= rol_svc.create(obj_in=new_rol)
     return rol
 
