@@ -2,12 +2,14 @@ from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
 
+from app.core.debugger import initialize_fastapi_server_debugger_if_needed
 from app.api.router import api_router
 from app.core.config import settings
 from app.core import exceptions
 from app.infraestructure.db.config import init_db
 from app.infraestructure.security.config import init_security
 
+initialize_fastapi_server_debugger_if_needed()
 
 def create_app() -> FastAPI:
     """Create the application."""

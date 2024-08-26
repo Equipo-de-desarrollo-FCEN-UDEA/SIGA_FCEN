@@ -6,4 +6,4 @@ from app.schemas.department import DepartmentCreate, DepartmentUpdate
 class DepartmentCrud(CRUDBase[Department, DepartmentCreate, DepartmentUpdate]):
     ...
     
-deparment_crud = DepartmentCrud(Department)
+department_crud = DepartmentCrud(Department)

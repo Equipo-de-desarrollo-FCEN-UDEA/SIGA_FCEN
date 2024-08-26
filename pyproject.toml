@@ -12,6 +12,7 @@ fastapi = "^0.92.0"
 gunicorn = "^20.1.0"
 pydantic = {extras = ["dotenv", "email"], version = "^1.10.5"}
 sqlalchemy = "^2.0.22"
+debugpy = "^1.8.0"
 psycopg2-binary = "^2.9.9"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
@@ -23,6 +24,7 @@ uvicorn = "^0.20.0"
 autopep8 = "^2.0.1"
 black = "^23.1.0"
 flake8 = "^6.0.0"
+
 
 
 [tool.poetry.group.test.dependencies]

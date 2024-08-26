@@ -14,5 +14,5 @@ class Department(BaseModel):
 # relations
     users = relationship("User", back_populates="department")
 
-    school_id = Column(Integer, ForeignKey("school.id"))
+    school_id = Column(Integer, ForeignKey("school.id"), nullable=False)
     school = relationship("School", back_populates="departments")
