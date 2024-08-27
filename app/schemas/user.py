@@ -18,9 +18,7 @@ class UserUpdate(BaseModel):
     email: str | None
     names: str | None
     last_names: str | None
-    address: str | None
-    age: int | None
-
+    department_id: int | None
 
 class UserCreateInDB(UserBase):
     hashed_password: str
