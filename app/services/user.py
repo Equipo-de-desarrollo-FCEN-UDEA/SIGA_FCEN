@@ -1,4 +1,4 @@
-from app.protocols.db.models.user import User
+from app.protocols.db.models.users.user import User
 from app.protocols.db.crud.user import CRUDUserProtocol
 
 from app.schemas.user import UserUpdate, UserCreate, UserCreateInDB, UserInDB

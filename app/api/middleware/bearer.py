@@ -5,7 +5,7 @@ from app.services.jwt import jwt_service
 from app.services.user import user_svc
 from app.core.config import settings
 from app.core.exceptions import InvalidCredentials
-from app.protocols.db.models.user import User
+from app.protocols.db.models.users.user import User
 
 reusable_oauth2 = OAuth2PasswordBearer(
     tokenUrl=f"http://localhost:8000{settings.API_V1_STR}/login/access-token"

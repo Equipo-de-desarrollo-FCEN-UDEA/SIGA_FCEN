@@ -4,7 +4,7 @@ from datetime import date
 from sqlalchemy.exc import IntegrityError
 
 from app.core.exceptions import ORMError
-from app.infraestructure.db.utils.model import BaseModel as Model
+from app.infraestructure.db.utils.base_model import BaseModel as Model
 from app.schemas.model import UpdateSchemaType, CreateSchemaType
 from app.infraestructure.db.utils.session import SessionLocal
 

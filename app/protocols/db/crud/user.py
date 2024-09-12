@@ -1,5 +1,5 @@
 from app.protocols.db.crud.base import CRUDProtocol
-from app.protocols.db.models.user import User
+from app.protocols.db.models.users.user import User
 from app.schemas.user import UserCreateInDB, UserUpdate
 
 
