@@ -16,5 +16,4 @@ class User(BaseModel):
     
     user_rol = relationship("UserRol", back_populates="user")
 
-    department_id = Column(Integer, ForeignKey("department.id"), nullable=False)
-    department = relationship("Department", back_populates="users")
+    
