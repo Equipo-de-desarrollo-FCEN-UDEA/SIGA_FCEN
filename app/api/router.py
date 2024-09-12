@@ -14,3 +14,4 @@ api_router.include_router(user.router, prefix="/user", tags=["user"])
 api_router.include_router(rol.router, prefix="/rol", tags=["rol"])
 api_router.include_router(user_rol.router, prefix="/user_rol", tags=["user_rol"])   
 api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
+
