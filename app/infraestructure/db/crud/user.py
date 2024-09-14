@@ -3,7 +3,7 @@ from sqlalchemy.exc import NoResultFound
 from app.infraestructure.db.utils.session import SessionLocal
 from app.infraestructure.db.crud.base import CRUDBase
 from app.infraestructure.db.models.users import User
-from app.schemas.users.user import UserCreateInDB, UserUpdate
+from app.schemas.user import UserCreateInDB, UserUpdate
 from app.core.exceptions import ORMError
 
 
