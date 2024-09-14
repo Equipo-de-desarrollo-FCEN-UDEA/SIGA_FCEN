@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import TypeVar
+from uuid import UUID   
 
 from pydantic import BaseModel
 
@@ -10,7 +11,7 @@ ObjInDB = TypeVar("ObjInDB", bound=BaseModel)
 
 
 class GeneralResponse(BaseModel):
-    id: int
+    id: UUID
     created_at: datetime
     updated_at: datetime
 
