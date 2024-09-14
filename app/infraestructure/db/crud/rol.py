@@ -1,5 +1,5 @@
 from app.infraestructure.db.crud.base import CRUDBase
-from app.infraestructure.db.models import Rol
+from app.infraestructure.db.models.users import Rol
 from app.schemas.rol import RolCreate, RolUpdate
 
 
