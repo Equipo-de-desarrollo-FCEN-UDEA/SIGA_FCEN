@@ -3,8 +3,6 @@ from sqlalchemy.orm import relationship
 
 from app.infraestructure.db.utils.base_model import BaseModel
 
-
-
 class UserRol(BaseModel):
     
     observation = Column(String(100), unique=False)

@@ -1,6 +1,6 @@
 from app.infraestructure.db.crud.base import CRUDBase
 from app.infraestructure.db.models.users import UserRol
-from app.schemas.user_rol import UserRolCreate, UserRolUpdate
+from app.schemas.users.user_rol import UserRolCreate, UserRolUpdate
 
 class UserRolCrud(CRUDBase[UserRol, UserRolCreate, UserRolUpdate]):
     ...

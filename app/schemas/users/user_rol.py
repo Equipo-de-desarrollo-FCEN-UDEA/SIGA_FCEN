@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from app.schemas.model import GeneralResponse
+from app.schemas.base_model import GeneralResponse
 
 class UserRolBase(BaseModel):
     rol_id: int

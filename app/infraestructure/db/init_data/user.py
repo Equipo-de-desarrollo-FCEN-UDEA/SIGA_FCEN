@@ -1,5 +1,5 @@
 from typing import List
-from app.schemas import user
+from app.schemas.users import user
 from app.core.config import get_settings
 
 settings = get_settings()

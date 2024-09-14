@@ -1,7 +1,6 @@
 from pydantic import BaseModel
-from typing import Optional
 
-from app.schemas.model import GeneralResponse
+from app.schemas.base_model import GeneralResponse
 
 class RolBase(BaseModel):
     name:str
