@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.schemas.users.rol import RolCreate, RolUpdate, RolInDB
-from app.services.rol import rol_svc
+from app.services.users.rol import rol_svc
 
 router = APIRouter()
 

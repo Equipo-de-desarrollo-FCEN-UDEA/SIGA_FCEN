@@ -2,8 +2,8 @@ from fastapi import APIRouter, HTTPException
 
 from app.schemas.users.user import UserCreate, UserUpdate, UserInDB
 from app.schemas.users.user_rol import UserRolCreate
-from app.services.user import user_svc
-from app.services.user_rol import user_rol_svc
+from app.services.users.user import user_svc
+from app.services.users.user_rol import user_rol_svc
 
 
 router = APIRouter()

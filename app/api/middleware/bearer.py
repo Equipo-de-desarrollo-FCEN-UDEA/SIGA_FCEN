@@ -2,7 +2,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 
 from app.services.jwt import jwt_service
-from app.services.user import user_svc
+from app.services.users.user import user_svc
 from app.core.config import settings
 from app.core.exceptions import InvalidCredentials
 from app.protocols.db.models.users.user import User
