@@ -7,7 +7,6 @@ ENV/
 env.bak/
 venv.bak/
 
-<<<<<<< HEAD
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -36,8 +35,6 @@ ENV/
 env.bak/
 venv.bak/
 
-=======
->>>>>>> develop
 # #DB
 ./db
 db/
