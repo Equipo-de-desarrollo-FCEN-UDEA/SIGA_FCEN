@@ -2,20 +2,27 @@ from app.services.user import user_svc
 from app.services.rol import rol_svc
 from app.services.user_rol import user_rol_svc
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> feature/reparar
+>>>>>>> develop
 
 from app.infraestructure.db.crud.user import user_crud
 from app.infraestructure.db.crud.rol import rol_crud
 from app.infraestructure.db.crud.user_rol import user_rol_crud
 <<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
 
 =======
 >>>>>>> feature/reparar
 
+>>>>>>> develop
 from app.infraestructure.db.utils.base_model import BaseModel
 from app.infraestructure.db.utils import session
 
@@ -29,8 +36,13 @@ def init_db() -> None:
     rol_svc.register_observer(rol_crud)
 <<<<<<< HEAD
     user_rol_svc.register_observer(user_rol_crud)
+<<<<<<< HEAD
+   
+ 
+=======
 =======
     user_rol_svc.register_observer(user_rol_crud)
    
  
 >>>>>>> feature/reparar
+>>>>>>> develop
