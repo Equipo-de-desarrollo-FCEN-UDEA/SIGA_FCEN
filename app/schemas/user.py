@@ -1,6 +1,10 @@
 from pydantic import BaseModel, Field, EmailStr
 
+<<<<<<< HEAD:app/schemas/user.py
 from app.schemas.model import GeneralResponse
+=======
+from app.schemas.utils.base_model import GeneralResponse
+>>>>>>> develop:app/schemas/users/user.py
 
 
 class UserBase(BaseModel):

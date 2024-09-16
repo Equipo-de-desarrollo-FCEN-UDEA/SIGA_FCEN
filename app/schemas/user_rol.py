@@ -1,6 +1,10 @@
 from pydantic import BaseModel
 
+<<<<<<< HEAD:app/schemas/user_rol.py
 from app.schemas.model import GeneralResponse
+=======
+from app.schemas.utils.base_model import GeneralResponse
+>>>>>>> develop:app/schemas/users/user_rol.py
 
 class UserRolBase(BaseModel):
     rol_id: int

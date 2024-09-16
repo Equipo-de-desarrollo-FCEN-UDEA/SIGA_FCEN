@@ -1,7 +1,7 @@
 from fastapi import Depends, APIRouter
 from fastapi.security import OAuth2PasswordRequestForm
 
-from app.services.user import user_svc
+from app.services.users.user import user_svc
 from app.services.jwt import jwt_service
 from app.schemas.token import Token
 from app.core.config import settings

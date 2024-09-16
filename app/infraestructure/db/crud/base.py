@@ -5,7 +5,11 @@ from sqlalchemy.exc import IntegrityError
 
 from app.core.exceptions import ORMError
 from app.infraestructure.db.utils.base_model import BaseModel as Model
+<<<<<<< HEAD
 from app.schemas.model import UpdateSchemaType, CreateSchemaType
+=======
+from app.schemas.utils.base_model import UpdateSchemaType, CreateSchemaType
+>>>>>>> develop
 from app.infraestructure.db.utils.session import SessionLocal
 
 
