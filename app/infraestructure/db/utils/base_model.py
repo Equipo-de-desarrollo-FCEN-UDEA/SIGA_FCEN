@@ -3,12 +3,13 @@ from sqlalchemy import Column, DateTime, Uuid
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
 
-from uuid import UUID
+from uuid import UUID, uuid4
+
 
 
 @as_declarative()
 class BaseModel:
-    id = Column(Uuid, primary_key=True)
+    id = Column(Uuid, default=uuid4 ,primary_key=True)
     __name__: str
 
     @declared_attr
