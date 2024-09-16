@@ -1,15 +1,6 @@
-from pydantic import BaseModel
-from uuid import UUID
+# from app.protocols.db.crud.base import CRUDProtocol
+# from app.protocols.db.models.organization.academic_unit import AcademicUnit
+# from app.schemas.organization.academic_unit import Academic, RolUpdate
 
-from app.schemas.base_model import GeneralResponse
-
-class AcademicUnitBase(BaseModel):
-    name: str
-    description: str | None
-
-class AcademicUnitCreate(AcademicUnitBase):
-    ...
-
-class AcademicUnitUpdate(BaseModel):
-    academic_unit_type_id: UUID
-    academic_unit_id: UUID
+# class CRUDRolProtocol(CRUDProtocol[Rol, RolCreate, RolUpdate]):
+#     ...

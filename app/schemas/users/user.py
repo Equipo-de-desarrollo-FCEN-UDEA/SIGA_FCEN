@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr
 from uuid import UUID
 
-from app.schemas.base_model import GeneralResponse
+from app.schemas.utils.base_model import GeneralResponse
 
 
 class UserBase(BaseModel):

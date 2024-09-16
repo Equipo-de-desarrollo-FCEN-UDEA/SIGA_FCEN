@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from app.schemas.base_model import GeneralResponse
+from app.schemas.utils.base_model import GeneralResponse
 
 class AcademicUnitTypeBase(BaseModel):
     name: str
