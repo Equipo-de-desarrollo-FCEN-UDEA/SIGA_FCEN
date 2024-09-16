@@ -1,13 +1,13 @@
 from pydantic import BaseModel, Field, EmailStr
+from uuid import UUID
 
-from app.schemas.model import GeneralResponse
+from app.schemas.utils.base_model import GeneralResponse
 
 
 class UserBase(BaseModel):
     email: EmailStr
     names: str | None
     last_names: str | None
-    department_id: int
 
 
 class UserCreate(UserBase):

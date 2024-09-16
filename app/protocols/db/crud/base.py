@@ -1,7 +1,7 @@
 from datetime import date
 from typing import Protocol, Generic, TypeVar, Any
 
-from app.schemas.model import CreateSchemaType, UpdateSchemaType
+from app.schemas.utils.base_model import CreateSchemaType, UpdateSchemaType
 
 
 ModelType = TypeVar("ModelType")

@@ -10,7 +10,6 @@ ObjInDB = TypeVar("ObjInDB", bound=BaseModel)
 
 
 class GeneralResponse(BaseModel):
-    id: int
     created_at: datetime
     updated_at: datetime
 
