@@ -1,17 +1,3 @@
-# Ignorar archivos .pyc específicos
-app/protocols/security/__pycache__/crypt.cpython-310.pyc
-
-# O ignorar todos los archivos .pyc en cualquier directorio __pycache__
-**/__pycache__/*.pyc
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
 # Environments
 .env
 .venv
