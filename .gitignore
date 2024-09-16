@@ -2,4 +2,7 @@
 .env
 .venv
 
+# Python bytecode
+*.pyc
+
 db/

@@ -3,9 +3,6 @@ from sqlalchemy import Column, DateTime, Uuid
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
 
-from uuid import UUID
-
-
 @as_declarative()
 class BaseModel:
     id = Column(Uuid, primary_key=True)
