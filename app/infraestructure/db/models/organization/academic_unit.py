@@ -11,3 +11,6 @@ class AcademicUnit(BaseModel):
     # relations
     academic_unit_type_id = Column(Uuid, ForeignKey("academic_unit_type.id"))
     academic_unit_type = relationship("AcademicUnitType", back_populates="academic_unit")
+
+    academic_unit_id = Column(Uuid, ForeignKey("academic_unit.id"))
+    academic_unit = relationship("AcademicUnit", back_populates="academic_unit")
