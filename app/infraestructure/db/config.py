@@ -39,7 +39,7 @@ from app.infraestructure.db.crud.organization.academic_council import academic_c
 from app.infraestructure.db.crud.organization.program import program_crud
 from app.infraestructure.db.crud.organization.research_group import research_group_crud
 
-from app.infraestructure.db.utils.base_model import BaseModel
+from app.infraestructure.db.utils.base import Base
 from app.infraestructure.db.utils import session
 
 #En este archivo lo que hacemos en crear la session en la base de datos
@@ -47,7 +47,8 @@ from app.infraestructure.db.utils import session
 def init_db() -> None:
     """si es una base de datos en memoria se deben generar los esquemas inmediatamente"""
 
-    BaseModel.metadata.create_all(bind=session.engine)
+    Base.metadata.create_all(bind=session.engine)
+
     user_svc.register_observer(user_crud)
     rol_svc.register_observer(rol_crud)
     user_rol_svc.register_observer(user_rol_crud)
