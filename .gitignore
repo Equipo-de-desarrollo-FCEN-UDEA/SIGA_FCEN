@@ -5,3 +5,6 @@
 # Python bytecode
 *.pyc
 
+#DB
+db
+
