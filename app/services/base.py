@@ -1,5 +1,6 @@
 from datetime import date
 from typing import Generic, TypeVar, Any
+from uuid import UUID
 from app.errors.base import BaseErrors
 
 from app.protocols.db.crud.base import CRUDProtocol
@@ -29,7 +30,7 @@ class ServiceBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType, CrudTyp
             raise BaseErrors(code=503, detail="Service not available")
         return self.observer.create(obj_in=obj_in)
 
-    def get(self, *, id: int) -> ModelType:
+    def get(self, *, id: UUID) -> ModelType:
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
         return self.observer.get(id=id)
@@ -55,7 +56,7 @@ class ServiceBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType, CrudTyp
             values=values,
         )
 
-    def update(self, *, id: int, obj_in: UpdateSchemaType) -> ModelType:
+    def update(self, *, id: UUID, obj_in: UpdateSchemaType) -> ModelType:
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
         return self.observer.update(id=id, obj_in=obj_in)

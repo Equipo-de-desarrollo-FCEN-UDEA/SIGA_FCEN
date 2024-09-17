@@ -1,9 +1,13 @@
 from sqlalchemy import Column, String, Boolean, Enum
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
+from typing import TYPE_CHECKING
 
 from app.infraestructure.db.utils.base_model import BaseModel
 
 import enum 
+
+if TYPE_CHECKING:
+    from app.infraestructure.db.models.users.rol import Rol
 
 # Definir el enum para identification_type
 class IdentificationType(enum.Enum):
@@ -25,5 +29,5 @@ class User(BaseModel):
     active = Column(Boolean, nullable=True, default=True)
 
     # relations
-    
-    user_rol = relationship("UserRol", back_populates="user")
+    user_roles = relationship("UserRol", back_populates="user")
+    roles: Mapped[list["Rol"]] = relationship("Rol", secondary="user_rol", back_populates="users")
