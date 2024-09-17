@@ -51,13 +51,6 @@ def init_db() -> None:
     user_svc.register_observer(user_crud)
     rol_svc.register_observer(rol_crud)
     user_rol_svc.register_observer(user_rol_crud)
-<<<<<<< HEAD
-
-=======
-    administrative_svc.register_observer(administrative_crud)
-    
-    
->>>>>>> feature/protocol/user
     academic_unit_type_svc.register_observer(academic_unit_type_crud)
     academic_unit_svc.register_observer(academic_unit_crud)
 
