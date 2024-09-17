@@ -1,11 +1,11 @@
 from sqlalchemy import Column, String, Uuid, ForeignKey
 from sqlalchemy.orm import relationship
 
-from app.infraestructure.db.utils.base_model import BaseModel
+from app.infraestructure.db.utils.link_model import LinkModel
 
-class Administrative(BaseModel):
+class Administrative(LinkModel):
 
-    user_id = Column (Uuid, ForeignKey("user.id"))
+    user_id = Column (Uuid, ForeignKey("user.id"), primary_key=True)
     user = relationship("User", back_populates="administrative")
     academic_unit_id = Column (Uuid, ForeignKey("academic_unit.id"))
     academic_unit = relationship("AcademicUnit", back_populates="administrative")

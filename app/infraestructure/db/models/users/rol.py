@@ -11,6 +11,7 @@ if TYPE_CHECKING:
 
 class Rol(BaseModel):
     name = Column(String(100), unique=True, nullable=False)
+    scope = Column(Integer, nullable=False)
     description = Column(String(100), nullable=False)
 
 # relations
