@@ -6,3 +6,5 @@ from .administrative import Administrative
 from .professor_type import ProfessorType
 from .professor import Porfesor
 from .student import Student
+from .user_academic_council import UserAcademicCouncil
+from .user_research_group import UserResearchGroup

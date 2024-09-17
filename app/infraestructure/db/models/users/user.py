@@ -31,3 +31,7 @@ class User(BaseModel):
     # relations
     user_roles = relationship("UserRol", back_populates="user")
     roles: Mapped[list["Rol"]] = relationship("Rol", secondary="user_rol", back_populates="users")
+
+    professor = relationship("Professor", back_populates="user", uselist=False)
+    student = relationship("Student", back_populates="user", uselist=False)
+    administrative = relationship("Administrative", back_populates="user", uselist=False)
