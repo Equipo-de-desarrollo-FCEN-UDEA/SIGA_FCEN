@@ -19,7 +19,6 @@ from app.services.organization.program import program_svc
 from app.services.organization.research_group import research_group_svc
 
 
-
 from app.infraestructure.db.crud.users.user import user_crud
 from app.infraestructure.db.crud.users.rol import rol_crud
 from app.infraestructure.db.crud.users.user_rol import user_rol_crud
@@ -53,9 +52,6 @@ def init_db() -> None:
     user_svc.register_observer(user_crud)
     rol_svc.register_observer(rol_crud)
     user_rol_svc.register_observer(user_rol_crud)
-    administrative_svc.register_observer(administrative_crud)
-    
-    
     academic_unit_type_svc.register_observer(academic_unit_type_crud)
     academic_unit_svc.register_observer(academic_unit_crud)
 
