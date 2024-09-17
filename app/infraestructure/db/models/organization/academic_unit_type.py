@@ -7,4 +7,4 @@ class AcademicUnitType(BaseModel):
     name = Column(String(100), unique=True, nullable=False)
 
     # relations
-    #academic_unit = relationship("AcademicUnit", back_populates="academic_unit_type")
+    academic_units = relationship("AcademicUnit", back_populates="academic_unit_type")
