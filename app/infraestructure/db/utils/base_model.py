@@ -3,10 +3,13 @@ from sqlalchemy import Column, DateTime, Uuid
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
 
+<<<<<<< HEAD
 from uuid import UUID, uuid4
 
 
 
+=======
+>>>>>>> feature/protocol/user
 @as_declarative()
 class BaseModel:
     id = Column(Uuid, default=uuid4 ,primary_key=True)

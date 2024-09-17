@@ -2,9 +2,11 @@ from pydantic import BaseModel
 
 from app.schemas.utils.base_model import GeneralResponse
 
+from uuid import UUID
+
 class UserRolBase(BaseModel):
-    rol_id: int
-    user_id: int
+    rol_id: UUID
+    user_id: UUID
     observation:str
     
     
