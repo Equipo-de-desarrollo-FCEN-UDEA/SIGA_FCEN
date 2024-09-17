@@ -8,8 +8,4 @@ class UserRol(LinkModel):
     rol_id = Column(ForeignKey("rol.id"), primary_key=True)
 
     user = relationship("User", back_populates="user_roles")
-<<<<<<< HEAD
     rol = relationship("Rol", back_populates="users")
-=======
-    rol = relationship("Rol", back_populates="users")
->>>>>>> develop
