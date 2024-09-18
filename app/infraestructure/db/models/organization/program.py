@@ -12,3 +12,5 @@ class Program(BaseModel):
 
     program_type_id = Column(Uuid, ForeignKey("program_type.id"))
     program_type = relationship("ProgramType", back_populates="programs")
+
+    students = relationship("Student", back_populates="program")

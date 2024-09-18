@@ -9,6 +9,7 @@ from uuid import UUID
 
 router = APIRouter()
 
+
 @router.post("create", response_model=AcademicUnitTypeInDB, status_code=201)
 def create_academic_unit_type(*, academic_unit_type_create: AcademicUnitTypeCreate) -> AcademicUnitTypeInDB:
     return academic_unit_type_svc.create(obj_in=academic_unit_type_create)

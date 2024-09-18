@@ -9,7 +9,7 @@ class Administrative(LinkModel):
     user = relationship("User", back_populates="administrative", uselist=False)
 
     academic_unit_id = Column (Uuid, ForeignKey("academic_unit.id"))
-    academic_unit = relationship("AcademicUnit", back_populates="administrative")
+    academic_unit = relationship("AcademicUnit", back_populates="administratives")
     
     administrative_type_id = Column(Uuid, ForeignKey("administrative_type.id"))
-    administrative_type = relationship("AdministrativeType", back_populates="administrative")
+    administrative_type = relationship("AdministrativeType", back_populates="administratives")

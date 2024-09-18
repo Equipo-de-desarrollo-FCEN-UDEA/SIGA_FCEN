@@ -11,3 +11,5 @@ class AcademicCouncil(BaseModel):
 
     academic_council_type_id = Column(Uuid, ForeignKey("academic_council_type.id"))
     academic_council_type = relationship("AcademicCouncilType", back_populates="academic_councils")
+
+    user_academic_councils = relationship("UserAcademicCouncil", back_populates="academic_council")

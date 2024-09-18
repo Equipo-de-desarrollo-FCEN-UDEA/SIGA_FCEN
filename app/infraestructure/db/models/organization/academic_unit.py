@@ -18,3 +18,5 @@ class AcademicUnit(BaseModel):
     research_groups = relationship("ResearchGroup", back_populates="academic_unit")
     programs = relationship("Program", back_populates="academic_unit")
     academic_councils = relationship("AcademicCouncil", back_populates="academic_unit")
+    administratives = relationship("Administrative", back_populates="academic_unit")
+    professors = relationship("Professor", back_populates="academic_unit")
