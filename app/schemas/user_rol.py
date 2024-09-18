@@ -6,9 +6,11 @@ from app.schemas.model import GeneralResponse
 from app.schemas.utils.base_model import GeneralResponse
 >>>>>>> develop:app/schemas/users/user_rol.py
 
+from uuid import UUID
+
 class UserRolBase(BaseModel):
-    rol_id: int
-    user_id: int
+    rol_id: UUID
+    user_id: UUID
     observation:str
     
     

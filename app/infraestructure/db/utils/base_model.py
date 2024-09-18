@@ -1,23 +1,8 @@
+from app.infraestructure.db.utils.base import Base
+from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import Column, Uuid
+import uuid
 
-from sqlalchemy import Column, DateTime, Uuid
-from sqlalchemy.sql import func
-from sqlalchemy.ext.declarative import as_declarative, declared_attr
-
-from uuid import UUID
-
-
-@as_declarative()
-class BaseModel:
-    id = Column(Uuid, primary_key=True)
-    __name__: str
-
-    @declared_attr
-    def __tablename__(cls):
-        return cls._camel2snake(cls.__name__)
-
-    created_at = Column(DateTime(timezone=True), default=func.now())
-    updated_at = Column(DateTime(timezone=True), default=func.now())
-
-    def _camel2snake(name: str):
-        return name[0].lower() + "".join(["_" + i.lower() 
-            if i.isupper() else i for i in name[1:]]).lstrip("_")
+class BaseModel(Base):
+    __abstract__ = True
+    id = Column(UUID(as_uuid=True),primary_key=True, default=uuid.uuid4)

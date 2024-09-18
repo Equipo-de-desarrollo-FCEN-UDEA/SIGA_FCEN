@@ -3,6 +3,6 @@ from uuid import UUID
 
 class ResearchGroup(BaseModel):
     name: str
-    description: str
-    email: str
+    description: str | None
+    email: str | None
     academic_unit_id: UUID

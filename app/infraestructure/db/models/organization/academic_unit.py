@@ -9,5 +9,15 @@ class AcademicUnit(BaseModel):
     email = Column(String(100), unique=True)
 
     # relations
-    academic_unit_type_id = Column(Uuid, ForeignKey("academic_unit_type.id"))
-    academic_unit_type = relationship("AcademicUnitType", back_populates="academic_unit")
+    academic_unit_type_id = Column(Uuid, ForeignKey("academic_unit_type.id"), nullable=True)
+    academic_unit_type = relationship("AcademicUnitType", back_populates="academic_units")
+
+    academic_unit_id = Column(Uuid, ForeignKey("academic_unit.id"))
+    academic_unit = relationship("AcademicUnit", back_populates="academic_unit")
+
+    research_groups = relationship("ResearchGroup", back_populates="academic_unit")
+    programs = relationship("Program", back_populates="academic_unit")
+    academic_councils = relationship("AcademicCouncil", back_populates="academic_unit")
+    professors = relationship("Professor", back_populates="academic_unit")
+    administratives = relationship("Administrative", back_populates="academic_unit")
+    represent_academic_units = relationship("RepresentAcademicUnit", back_populates="academic_unit")

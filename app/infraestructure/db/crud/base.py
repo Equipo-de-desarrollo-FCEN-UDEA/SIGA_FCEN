@@ -12,6 +12,8 @@ from app.schemas.utils.base_model import UpdateSchemaType, CreateSchemaType
 >>>>>>> develop
 from app.infraestructure.db.utils.session import SessionLocal
 
+from uuid import UUID
+
 
 ModelType = TypeVar("ModelType", bound=Model)
 
@@ -32,7 +34,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
             except IntegrityError as e:
                 raise ORMError(str(e))
 
-    def get(self, *, id: int) -> ModelType:
+    def get(self, *, id: UUID) -> ModelType:
         with SessionLocal() as db:
             return db.query(self.model).filter(self.model.id == id).first()
 
@@ -52,7 +54,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
             except IntegrityError as e:
                 raise ORMError(str(e))
 
-    def update(self, *, id: int, obj_in: UpdateSchemaType) -> ModelType:
+    def update(self, *, id: UUID, obj_in: UpdateSchemaType) -> ModelType:
         obj_data = obj_in.dict()
         with SessionLocal() as db:
             try:

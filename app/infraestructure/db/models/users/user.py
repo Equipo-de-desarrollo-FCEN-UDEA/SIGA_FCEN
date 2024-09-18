@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 from sqlalchemy import Column, ForeignKey, String, Integer, Boolean, Enum
 from sqlalchemy.orm import relationship
+=======
+from sqlalchemy import Column, String, Boolean, Enum
+from sqlalchemy.orm import relationship, Mapped
+from typing import TYPE_CHECKING
+>>>>>>> develop
 
 from app.infraestructure.db.utils.base_model import BaseModel
 
 import enum 
+
+if TYPE_CHECKING:
+    from app.infraestructure.db.models.users.rol import Rol
 
 # Definir el enum para identification_type
 class IdentificationType(enum.Enum):
@@ -24,6 +33,19 @@ class User(BaseModel):
     is_superuser = Column(Boolean, nullable=False, default=False)
     active = Column(Boolean, nullable=True, default=True)
 
-    # relations
-    
-    user_rol = relationship("UserRol", back_populates="user")
+
+
+    # # relations
+    user_roles = relationship("UserRol", back_populates="user")
+    professor = relationship("Professor", back_populates="user", uselist=False)
+    student = relationship("Student", back_populates="user", uselist=False)
+    administrative = relationship("Administrative", back_populates="user", uselist=False)
+    user_academic_councils = relationship("UserAcademicCouncil", back_populates="user")
+    user_reserach_groups = relationship("UserResearchGroup", back_populates="user")
+    represent_academic_units = relationship("RepresentAcademicUnit", back_populates="user")
+
+    # roles: Mapped[list["Rol"]] = relationship("Rol", secondary="user_rol", back_populates="users")
+
+    # professor = relationship("Professor", back_populates="user", uselist=False)
+    # student = relationship("Student", back_populates="user", uselist=False)
+    # administrative = relationship("Administrative", back_populates="user", uselist=False)
