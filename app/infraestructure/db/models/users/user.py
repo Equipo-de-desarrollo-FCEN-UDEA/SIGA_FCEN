@@ -35,9 +35,17 @@ class User(BaseModel):
     professor = relationship("Professor", back_populates="user")
     student = relationship("Student", back_populates="user", uselist=False)
     administrative = relationship("Administrative", back_populates="user", uselist=False)
+<<<<<<< HEAD
     roles: Mapped[list["Rol"]] = relationship("Rol", secondary="user_rol", back_populates="users")
     user_academic_councils = relationship("UserAcademicCouncil", back_populates="user")
     user_research_groups = relationship("UserResearchGroup", back_populates="user")
+=======
+    user_academic_councils = relationship("UserAcademicCouncil", back_populates="user")
+    user_reserach_groups = relationship("UserResearchGroup", back_populates="user")
+    represent_academic_units = relationship("RepresentAcademicUnit", back_populates="user")
+
+    # roles: Mapped[list["Rol"]] = relationship("Rol", secondary="user_rol", back_populates="users")
+>>>>>>> develop
 
     # professor = relationship("Professor", back_populates="user", uselist=False)
     # student = relationship("Student", back_populates="user", uselist=False)

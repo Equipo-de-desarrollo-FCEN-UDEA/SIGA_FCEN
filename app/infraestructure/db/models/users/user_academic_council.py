@@ -9,3 +9,5 @@ class UserAcademicCouncil(LinkModel):
     
     academic_council_id = Column(ForeignKey("academic_council.id"), primary_key=True)
     academic_council = relationship("AcademicCouncil", back_populates="user_academic_councils")
+
+    

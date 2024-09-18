@@ -8,3 +8,4 @@ from .professor import Professor
 from .student import Student
 from .user_academic_council import UserAcademicCouncil
 from .user_research_group import UserResearchGroup
+from .represent_academic_unit import RepresentAcademicUnit

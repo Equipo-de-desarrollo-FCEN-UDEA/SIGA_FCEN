@@ -12,4 +12,9 @@ class ResearchGroup(BaseModel):
     academic_unit_id = Column(Uuid, ForeignKey("academic_unit.id"))
     academic_unit = relationship("AcademicUnit", back_populates="research_groups")
 
+<<<<<<< HEAD
     user_research_groups = relationship("UserResearchGroup", back_populates="research_group")
+=======
+    user_research_groups = relationship("UserResearchGroup", back_populates="research_group")
+    
+>>>>>>> develop
