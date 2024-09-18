@@ -1,6 +1,8 @@
 from typing import Generic, TypeVar, Any
-from datetime import date
+from datetime import date, datetime
 
+from fastapi import HTTPException
+from sqlalchemy import inspect
 from sqlalchemy.exc import IntegrityError
 
 from app.core.exceptions import ORMError
@@ -54,10 +56,17 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         obj_data = obj_in.dict()
         with SessionLocal() as db:
             try:
-                db_obj = db.query(self.model).filter(self.model.id == id).first()
-                for field in dict(db_obj):
-                    if field in obj_data:
-                        setattr(db_obj, field, obj_data[field])
+                db_obj = db.get(self.model, id)
+
+                if not db_obj:
+                    raise HTTPException(status_code=404, detail="Object not found")            
+
+                mapper = inspect(self.model)
+
+                for field in mapper.attrs:
+                    if field.key in obj_data:
+                        setattr(db_obj, field.key, obj_data[field.key])
+                setattr(db_obj, "updated_at", datetime.now())
                 db.add(db_obj)
                 db.commit()
                 db.refresh(db_obj)
@@ -68,7 +77,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     def delete(self, *, id: int) -> int:
         with SessionLocal() as db:
             try:
-                obj_db = db.query(self.model).get(id)
+                obj_db = db.get(self.model, id)
                 db.delete(obj_db)
                 db.commit()
                 return True

@@ -5,7 +5,6 @@ from app.api.routes.v1.utils.base_router import BaseRouter
 from fastapi import APIRouter
 
 router = APIRouter()
-tags = ["Program Type"]
 
 BaseRouter(
     schem_in_db=ProgramTypeInDB,
@@ -13,6 +12,5 @@ BaseRouter(
     schem_update=ProgramTypeUpdate,
     service=program_type_svc,
     router=router,
-    tags=tags,
-    methods=["create"]
+    methods=["create", "get-all", "get", "update"]
 )
