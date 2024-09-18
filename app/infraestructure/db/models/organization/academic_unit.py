@@ -12,8 +12,10 @@ class AcademicUnit(BaseModel):
     academic_unit_type_id = Column(Uuid, ForeignKey("academic_unit_type.id"), nullable=True)
     academic_unit_type = relationship("AcademicUnitType", back_populates="academic_units")
 
-    academic_unit_id = Column(Uuid, ForeignKey("academic_unit.id"))
-    academic_unit = relationship("AcademicUnit", back_populates="academic_unit")
+    parent_academic_unit_id = Column(Uuid, ForeignKey("academic_unit.id"), nullable=True)
+    parent_academic_unit = relationship("AcademicUnit", remote_side="AcademicUnit.id" ,back_populates="academic_units")
+
+    academic_units = relationship("AcademicUnit", back_populates="parent_academic_unit", cascade="all, delete")
 
     research_groups = relationship("ResearchGroup", back_populates="academic_unit")
     programs = relationship("Program", back_populates="academic_unit")
