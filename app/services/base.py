@@ -5,7 +5,11 @@ from app.errors.base import BaseErrors
 
 from app.protocols.db.crud.base import CRUDProtocol
 
+<<<<<<< HEAD
+from app.schemas.model import CreateSchemaType, UpdateSchemaType
+=======
 from app.schemas.utils.base_model import CreateSchemaType, UpdateSchemaType
+>>>>>>> develop
 
 
 ModelType = TypeVar("ModelType")

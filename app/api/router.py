@@ -23,4 +23,6 @@ api_router.include_router(user_rol.router, prefix="/user_rol", tags=["user_rol"]
 api_router.include_router(academic_unit_type.router, prefix="/academic_unit_type", tags=["academic_unit_type"])
 
 
+api_router.include_router(academic_unit_type.router, prefix="/academic_unit_type", tags=["academic_unit_type"])
+
 
