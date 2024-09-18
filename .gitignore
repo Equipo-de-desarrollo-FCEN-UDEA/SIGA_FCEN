@@ -4,6 +4,7 @@
 
 # Python bytecode
 *.pyc
+__pycache__/
 
 #DB
 db
