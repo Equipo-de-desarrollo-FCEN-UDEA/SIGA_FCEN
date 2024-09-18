@@ -13,7 +13,12 @@ class ResearchGroup(BaseModel):
     academic_unit = relationship("AcademicUnit", back_populates="research_groups")
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     user_research_groups = relationship("UserResearchGroup", back_populates="research_group")
+=======
+    user_research_groups = relationship("UserResearchGroup", back_populates="research_group")
+    
+>>>>>>> develop
 =======
     user_research_groups = relationship("UserResearchGroup", back_populates="research_group")
     

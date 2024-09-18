@@ -9,7 +9,11 @@ class UserResearchGroup(LinkModel):
     
     research_group_id = Column(ForeignKey("research_group.id"), primary_key=True)
 <<<<<<< HEAD
+<<<<<<< HEAD
     research_group = relationship("ResearchGroup", back_populates="user_research_groups")
+=======
+    research_group = relationship("ResearchGroup", back_populates="user_reserach_groups")
+>>>>>>> develop
 =======
     research_group = relationship("ResearchGroup", back_populates="user_reserach_groups")
 >>>>>>> develop
