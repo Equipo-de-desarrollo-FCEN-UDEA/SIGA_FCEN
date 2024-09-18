@@ -9,7 +9,7 @@ class Porfesor(LinkModel):
     user = relationship("User", back_populates="professor",uselist=False)
 
     academic_unit_id = Column (Uuid, ForeignKey("academic_unit.id"))
-    academic_unit = relationship("AcademicUnit", back_populates="professor")
+    academic_unit = relationship("AcademicUnit", back_populates="professors")
     
     professor_type_id = Column(Uuid, ForeignKey("professor_type.id"))
     professor_type = relationship("ProfessorType", back_populates="professor")
