@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-from sqlalchemy import Column, ForeignKey, String, Integer, Boolean, Enum
-from sqlalchemy.orm import relationship
-=======
 from sqlalchemy import Column, String, Boolean, Enum
 from sqlalchemy.orm import relationship, Mapped
 from typing import TYPE_CHECKING
->>>>>>> develop
 
 from app.infraestructure.db.utils.base_model import BaseModel
 
