@@ -19,14 +19,13 @@ class IdentificationType(enum.Enum):
 
 class User(BaseModel):
     name = Column(String(100), nullable=False)
-    last_names = Column(String(100), nullable=False)
+    last_name = Column(String(100), nullable=False)
     email = Column(String(100), unique=True)
     identification_type= Column(Enum(IdentificationType), nullable=False)
     identification_number= Column(String(10))
     phone = Column(String(10), nullable=True)
     hashed_password = Column(String(300), nullable=False)
-    is_superuser = Column(Boolean, nullable=False, default=False)
-    active = Column(Boolean, nullable=True, default=True)
+    is_active = Column(Boolean, nullable=True, default=True)
 
 
 
@@ -38,6 +37,7 @@ class User(BaseModel):
     roles: Mapped[list["Rol"]] = relationship("Rol", secondary="user_rol", back_populates="users")
     user_academic_councils = relationship("UserAcademicCouncil", back_populates="user")
     user_research_groups = relationship("UserResearchGroup", back_populates="user")
+    represent_academic_units = relationship("RepresentAcademicUnit", back_populates="user")
 
     # professor = relationship("Professor", back_populates="user", uselist=False)
     # student = relationship("Student", back_populates="user", uselist=False)

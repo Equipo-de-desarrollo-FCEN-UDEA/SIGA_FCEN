@@ -7,7 +7,6 @@ from uuid import UUID
 class UserRolBase(BaseModel):
     rol_id: UUID
     user_id: UUID
-    observation:str
     
     
 class UserRolCreate(UserRolBase):
