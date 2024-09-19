@@ -8,8 +8,4 @@ class UserResearchGroup(LinkModel):
     user = relationship("User", back_populates="user_research_groups")
     
     research_group_id = Column(ForeignKey("research_group.id"), primary_key=True)
-<<<<<<< HEAD
     research_group = relationship("ResearchGroup", back_populates="user_research_groups")
-=======
-    research_group = relationship("ResearchGroup", back_populates="user_reserach_groups")
->>>>>>> develop
