@@ -1,3 +1,4 @@
+from uuid import UUID
 from fastapi import APIRouter, HTTPException
 
 from app.schemas.users.user import UserCreate, UserUpdate, UserInDB
@@ -10,7 +11,7 @@ router = APIRouter()
 
 
 @router.post("", response_model=UserInDB, status_code=201)
-def create_user(*, new_user: UserCreate, rol_id:str) -> UserInDB:
+def create_user(*, new_user: UserCreate, rol_id:UUID) -> UserInDB:
     """Endpoint to create a new user in db
 
     Args:
@@ -23,7 +24,7 @@ def create_user(*, new_user: UserCreate, rol_id:str) -> UserInDB:
     user = user_svc.create(obj_in=new_user)
     user_rol_svc.create(
         obj_in=UserRolCreate(
-            rol_id=rol_id, user_id=user.id, observation="Se creo el usuario"
+            rol_id=rol_id, user_id=user.id
         )
     )
     return user
