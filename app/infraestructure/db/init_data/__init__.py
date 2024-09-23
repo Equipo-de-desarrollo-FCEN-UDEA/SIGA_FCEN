@@ -1,0 +1,1 @@
+from app.infraestructure.db.models.users.user import User
