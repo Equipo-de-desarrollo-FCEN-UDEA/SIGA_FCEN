@@ -11,6 +11,7 @@ class UserBase(BaseModel):
     identification_type: IdentificationType
     identification_number: str
     phone: str | None
+    is_active: bool = True
 
 
 class UserCreate(UserBase):
