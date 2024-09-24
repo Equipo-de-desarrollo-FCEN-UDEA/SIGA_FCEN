@@ -18,7 +18,7 @@ def init_db_log() -> None:
 
     @event.listens_for(base.User.__table__, 'after_create')
     def init_user(table, conn, *args, **kwargs):
-        from .users.user import init_user
+        from .user.user import init_user
         for user in init_user:
             db_obj = dict(user)
             db_obj['hashed_password'] = crypt.get_password_hash(
