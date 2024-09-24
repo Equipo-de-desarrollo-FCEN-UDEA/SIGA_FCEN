@@ -7,13 +7,15 @@ from app.api.router import api_router
 from app.core.config import settings
 from app.core import exceptions
 from app.infraestructure.db.config import init_db
+from app.infraestructure.db.init_data.init_db import init_db_log
 from app.infraestructure.security.config import init_security
 
-initialize_fastapi_server_debugger_if_needed()
+
 
 def create_app() -> FastAPI:
     """Create the application."""
     app = FastAPI(title=settings.APP_NAME, version=settings.APP_VERSION)
+    initialize_fastapi_server_debugger_if_needed()
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -25,6 +27,7 @@ def create_app() -> FastAPI:
     return app
 
 
+
 app = create_app()
 
 
@@ -32,6 +35,7 @@ app = create_app()
 def startup_event():
     """Event start up"""
     init_db()
+    init_db_log()
     init_security()
 
 
