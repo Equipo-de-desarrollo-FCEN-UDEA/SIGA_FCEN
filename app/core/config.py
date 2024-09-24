@@ -1,7 +1,20 @@
 from functools import lru_cache
-from typing import Any, Dict, List
+from locale import setlocale, LC_TIME
+from typing import Any, Dict, List, Type
+
+from app.core.settings.app import AppSettings
+from app.core.settings.base import AppEnv, BaseAppSettings
+from app.core.settings import DevelopAppSettings
 
 from pydantic import BaseSettings
+
+
+environments: Dict[AppEnv, Type[AppSettings]] = {
+    AppEnv.Develop: DevelopAppSettings
+    # AppEnv.Production: ProductionAppSettings,
+    # AppEnv.Testing: TestingAppSettings
+}
+
 
 # from pydantic_settings import BaseSettings
 

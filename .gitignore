@@ -8,3 +8,7 @@
 #DB
 db
 
+## Carga de datos
+app/infraestructura/db/init_data/user/*
+app/infraestructura/db/init_data/organization/*
+
