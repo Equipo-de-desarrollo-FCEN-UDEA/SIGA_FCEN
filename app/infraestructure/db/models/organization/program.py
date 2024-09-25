@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship
 from app.infraestructure.db.utils.base_model import BaseModel
 
 class Program(BaseModel):
-    name = Column(String(100), unique=True, nullable=False)
 
     # relations
     academic_unit_id = Column(Uuid, ForeignKey("academic_unit.id"))
@@ -14,3 +13,4 @@ class Program(BaseModel):
     program_type = relationship("ProgramType", back_populates="programs")
 
     students = relationship("Student", back_populates="program")
+    represent_programs = relationship("RepresentProgram", back_populates="program")

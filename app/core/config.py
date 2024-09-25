@@ -24,7 +24,7 @@ class Settings(BaseSettings):
 
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 10080
 
-    SECRET_KEY: str
+    SECRET_KEY: str 
 
     ALGORITHM: str = "HS256"
 

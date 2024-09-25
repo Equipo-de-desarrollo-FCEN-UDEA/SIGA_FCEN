@@ -6,5 +6,5 @@
 *.pyc
 
 #DB
-db
+db/postgres
 

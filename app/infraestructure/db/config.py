@@ -47,7 +47,7 @@ from app.infraestructure.db.utils import session
 def init_db() -> None:
     """si es una base de datos en memoria se deben generar los esquemas inmediatamente"""
 
-    Base.metadata.create_all(bind=session.engine)
+    # Base.metadata.create_all(bind=session.engine)
 
     user_svc.register_observer(user_crud)
     rol_svc.register_observer(rol_crud)
