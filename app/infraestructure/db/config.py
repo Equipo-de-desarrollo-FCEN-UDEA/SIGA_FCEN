@@ -57,12 +57,12 @@ log = get_logger(__name__)
 def init_db() -> None:
     """si es una base de datos en memoria se deben generar los esquemas inmediatamente"""
 
-    # @event.listens_for(base.Base.metadata, 'after_create')
-    # def receive_after_create(target, connection, tables, **Kw):
-    #     for table in tables:
-    #         log.info(f"Table {table} created")
+    @event.listens_for(base.Base.metadata, 'after_create')
+    def receive_after_create(target, connection, tables, **Kw):
+        for table in tables:
+            log.info(f"Table {table} created")
 
-    # Base.metadata.create_all(bind=session.engine)
+    Base.metadata.create_all(bind=session.engine)
 
     user_svc.register_observer(user_crud)
     rol_svc.register_observer(rol_crud)
