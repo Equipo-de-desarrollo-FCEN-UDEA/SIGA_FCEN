@@ -64,7 +64,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
                 mapper = inspect(self.model)
 
                 for field in mapper.attrs:
-                    if field.key in obj_data:
+                    if field.key in obj_data and obj_data[field.key] is not None:
                         setattr(db_obj, field.key, obj_data[field.key])
                 setattr(db_obj, "updated_at", datetime.now())
                 db.add(db_obj)
