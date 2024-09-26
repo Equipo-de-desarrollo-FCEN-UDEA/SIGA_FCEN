@@ -13,4 +13,4 @@ class ResearchGroup(BaseModel):
     academic_unit = relationship("AcademicUnit", back_populates="research_groups")
 
     user_research_groups = relationship("UserResearchGroup", back_populates="research_group")
-    
+    represent_research_groups = relationship("RepresentResearchGroup", back_populates="research_group")

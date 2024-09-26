@@ -8,4 +8,5 @@
 #DB
 db/postgres
 
-
+# Pip install dependencies
+=*
