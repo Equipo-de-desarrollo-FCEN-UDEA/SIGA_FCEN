@@ -62,7 +62,7 @@ def init_db() -> None:
         for table in tables:
             log.info(f"Table {table} created")
 
-    Base.metadata.create_all(bind=session.engine)
+    #Base.metadata.create_all(bind=session.engine)
 
     user_svc.register_observer(user_crud)
     rol_svc.register_observer(rol_crud)
