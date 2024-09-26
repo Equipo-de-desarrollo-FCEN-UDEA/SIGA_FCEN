@@ -22,8 +22,8 @@ class User(BaseModel):
     last_name = Column(String(100), nullable=False)
     email = Column(String(100), unique=True)
     identification_type= Column(Enum(IdentificationType), nullable=False)
-    identification_number= Column(String(10))
-    phone = Column(String(10), nullable=True)
+    identification_number= Column(String(50), unique=True)
+    phone = Column(String(20), nullable=True)
     hashed_password = Column(String(300), nullable=False)
     is_active = Column(Boolean, nullable=True, default=True)
 
