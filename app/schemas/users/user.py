@@ -20,7 +20,7 @@ class UserCreate(UserBase):
 
 class UserUpdate(BaseModel):
     email: str | None
-    names: str | None
+    name: str | None
     last_name: str | None
 
 class UserCreateInDB(UserBase):
