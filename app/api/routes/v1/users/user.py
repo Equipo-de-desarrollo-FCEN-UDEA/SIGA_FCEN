@@ -1,4 +1,6 @@
+from uuid import UUID
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import JSONResponse
 
 from app.schemas.users.user import UserCreate, UserUpdate, UserInDB
 from app.schemas.users.user_rol import UserRolCreate
@@ -10,7 +12,7 @@ router = APIRouter()
 
 
 @router.post("", response_model=UserInDB, status_code=201)
-def create_user(*, new_user: UserCreate, rol_id:str) -> UserInDB:
+def create_user(*, new_user: UserCreate, rol_id:UUID) -> UserInDB:
     """Endpoint to create a new user in db
 
     Args:
@@ -23,7 +25,7 @@ def create_user(*, new_user: UserCreate, rol_id:str) -> UserInDB:
     user = user_svc.create(obj_in=new_user)
     user_rol_svc.create(
         obj_in=UserRolCreate(
-            rol_id=rol_id, user_id=user.id, observation="Se creo el usuario"
+            rol_id=rol_id, user_id=user.id
         )
     )
     return user
@@ -35,7 +37,7 @@ def get_all_user(*, skip: int = 0, limit: int = 10) -> list[UserInDB]:
 
 
 @router.get("/{id}", response_model=UserInDB, status_code=200)
-def get_user(*, id: int) -> UserInDB:
+def get_user(*, id: UUID) -> UserInDB:
     user = user_svc.get(id=id)
     if not user:
         raise HTTPException(404, "User not found")
@@ -43,16 +45,16 @@ def get_user(*, id: int) -> UserInDB:
 
 
 @router.patch("/{id}", response_model=None)
-def update_user(*, obj_in: UserUpdate, id: int) -> None:
+def update_user(*, obj_in: UserUpdate, id: UUID) -> None:
     user = user_svc.get(id=id)
     if not user:
         raise HTTPException(404, "User not found")
     user_svc.update(id=id, obj_in=obj_in)
-    return None
+    return JSONResponse(status_code=200, content={"message": "entity updated"})
 
 
 @router.delete("/{id}", response_model=None, status_code=204)
-def delete_user(*, id: int) -> None:
+def delete_user(*, id: UUID) -> None:
     user = user_svc.delete(id=id)
     if user == 0:
         raise HTTPException(404, "User not found")

@@ -11,7 +11,9 @@ class RolCreate(RolBase):
     ...
     
 class RolUpdate(BaseModel):
-    ...
+    name:str | None
+    scope: int | None
+    description: str | None
     
 class RolInDB(GeneralResponse, RolBase):
     ...

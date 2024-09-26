@@ -6,5 +6,7 @@
 *.pyc
 
 #DB
-db
+db/postgres
 
+# Pip install dependencies
+=*

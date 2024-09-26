@@ -16,4 +16,4 @@ class Rol(BaseModel):
 
 # relations
     user_roles = relationship("UserRol", back_populates="rol")
-    users: Mapped[list["User"]] = relationship ("User", secondary="user_rol" ,back_populates="roles")
+    users: Mapped[list["User"]] = relationship ("User", secondary="user_rol" ,back_populates="roles", overlaps="user_roles")
