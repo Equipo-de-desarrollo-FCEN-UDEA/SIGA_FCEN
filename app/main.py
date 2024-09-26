@@ -9,11 +9,12 @@ from app.core import exceptions
 from app.infraestructure.db.config import init_db
 from app.infraestructure.security.config import init_security
 
-initialize_fastapi_server_debugger_if_needed()
+
 
 def create_app() -> FastAPI:
     """Create the application."""
     app = FastAPI(title=settings.APP_NAME, version=settings.APP_VERSION)
+    initialize_fastapi_server_debugger_if_needed()
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -23,6 +24,7 @@ def create_app() -> FastAPI:
     )
     app.include_router(api_router, prefix=settings.API_V1_STR)
     return app
+
 
 
 app = create_app()

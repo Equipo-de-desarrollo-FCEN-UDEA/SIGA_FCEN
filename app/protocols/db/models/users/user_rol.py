@@ -4,4 +4,3 @@ from uuid import UUID
 class UserRol(LinkModel):
     user_id: UUID
     rol_id: UUID
-    observation: str
