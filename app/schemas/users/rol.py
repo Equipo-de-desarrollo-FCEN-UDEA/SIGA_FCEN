@@ -4,7 +4,7 @@ from app.schemas.utils.base_model import GeneralResponse
 
 class RolBase(BaseModel):
     name:str
-    scope: int
+    scope: str
     description: str
     
 class RolCreate(RolBase):
