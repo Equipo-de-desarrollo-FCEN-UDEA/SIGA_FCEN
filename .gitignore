@@ -9,3 +9,6 @@
 db/postgres
 
 init_data/
+
+# Docker out installations
+*=
