@@ -8,7 +8,6 @@ class Rol(BaseModel):
     name = Column(String(100), nullable=False)
     scope = Column(String(100), nullable=False)
     description = Column(String(100), nullable=False)
-
     academic_unit_id = Column(Uuid,ForeignKey("academic_unit.id") ,nullable=False)
 
 # relations

@@ -1,3 +1,4 @@
+from uuid import UUID
 from pydantic import BaseModel
 
 from app.schemas.utils.base_model import GeneralResponse
@@ -6,6 +7,7 @@ class RolBase(BaseModel):
     name:str
     scope: str
     description: str
+    academic_unit_id: UUID
     
 class RolCreate(RolBase):
     ...
