@@ -45,7 +45,7 @@ services:
             - auth-network
         depends_on:
             - postgres-db-auth
-            - mongo
+            - mongo-db-auth
         restart: on-failure
     
 
