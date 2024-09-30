@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, EmailStr
 
 from app.schemas.utils.base_model import GeneralResponse
 
-from app.infraestructure.db.models.users.user import IdentificationType
+from app.infraestructure.db.models.user.user import IdentificationType
 
 class UserBase(BaseModel):
     email: EmailStr

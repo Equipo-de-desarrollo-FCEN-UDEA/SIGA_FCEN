@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Uuid, String, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 
-from app.infraestructure.db.utils.base_model import BaseModel
+from app.infraestructure.db.postgres_utils.base_model import BaseModel
 
 class AcademicUnit(BaseModel):
     name = Column(String(100), unique=True, nullable=False)

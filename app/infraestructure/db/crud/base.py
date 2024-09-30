@@ -6,9 +6,9 @@ from sqlalchemy import inspect
 from sqlalchemy.exc import IntegrityError
 
 from app.core.exceptions import ORMError
-from app.infraestructure.db.utils.base_model import BaseModel as Model
+from app.infraestructure.db.postgres_utils.base_model import BaseModel as Model
 from app.schemas.utils.base_model import UpdateSchemaType, CreateSchemaType
-from app.infraestructure.db.utils.session import SessionLocal
+from app.infraestructure.db.postgres_utils.session import SessionLocal
 
 from uuid import UUID
 

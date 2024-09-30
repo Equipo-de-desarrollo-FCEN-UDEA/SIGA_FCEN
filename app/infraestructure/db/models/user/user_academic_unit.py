@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Uuid, ForeignKey
 from sqlalchemy.orm import relationship
 
-from app.infraestructure.db.utils.link_model import LinkModel
+from app.infraestructure.db.postgres_utils.link_model import LinkModel
 
 class UserAcademicUnit(LinkModel):
     user_id = Column(Uuid, ForeignKey("user.id"), primary_key=True)

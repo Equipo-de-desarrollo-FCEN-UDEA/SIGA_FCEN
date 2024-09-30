@@ -6,6 +6,6 @@
 *.pyc
 
 #DB
-db/postgres
+db/*
 
 init_data/

@@ -1,5 +1,5 @@
-from app.infraestructure.db.utils.base import Base
-from app.infraestructure.db.utils import session
+from app.infraestructure.db.postgres_utils.base import Base
+from app.infraestructure.db.postgres_utils import session
 
 #User Services
 from app.services.users.user import user_svc
@@ -20,7 +20,7 @@ from app.infraestructure.db.crud.organization.academic_unit_type import academic
 from app.infraestructure.db.crud.organization.academic_unit import academic_unit_crud
 
 
-from app.infraestructure.db.utils import base
+from app.infraestructure.db.postgres_utils import base
 
 
 from sqlalchemy import event
