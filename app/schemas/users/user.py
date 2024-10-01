@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, EmailStr
 
 from app.schemas.utils.base_model import GeneralResponse
 
-from app.infraestructure.db.models.users.user import IdentificationType
+from app.infraestructure.db.models.user.user import IdentificationType
 
 class UserBase(BaseModel):
     email: EmailStr
@@ -36,4 +36,4 @@ class UserSearch(BaseModel):
     email__icontains: str | None = Field(None, alias="email")
 
     class Config:
-        allow_population_by_field_name = True
+        populate_by_name = True

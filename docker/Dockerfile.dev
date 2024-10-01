@@ -17,6 +17,9 @@ ENV PYTHONUNBUFFERED=1 \
 
 ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
+# Instalar Alembic
+RUN pip3 install alembic
+
 
 FROM python-base as requirements-image
 RUN apt-get update \

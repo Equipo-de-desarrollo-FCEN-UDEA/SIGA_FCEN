@@ -1,5 +1,5 @@
 from app.infraestructure.db.crud.base import CRUDBase
-from app.infraestructure.db.models.users.user import User
+from app.infraestructure.db.models.user.user import User
 from app.schemas.users.user import UserCreate, UserUpdate
 
 

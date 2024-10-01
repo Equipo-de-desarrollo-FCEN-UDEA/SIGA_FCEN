@@ -4,6 +4,7 @@ from datetime import date, datetime
 from fastapi import HTTPException
 from sqlalchemy import inspect
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
 
 from app.core.exceptions import ORMError
 from app.infraestructure.db.utils.base_model import BaseModel as Model
@@ -20,10 +21,10 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     def __init__(self, model: ModelType):
         self.model = model
 
-    def create(self, *, obj_in: CreateSchemaType) -> ModelType:
+    def create(self, *, obj_in: CreateSchemaType, db: Session) -> ModelType:
         obj_in_data = obj_in.dict()
         db_obj = self.model(**obj_in_data)
-        with SessionLocal() as db:
+        with db:
             try:
                 db.add(db_obj)
                 db.commit()
@@ -32,8 +33,8 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
             except IntegrityError as e:
                 raise ORMError(str(e))
 
-    def get(self, *, id: UUID) -> ModelType:
-        with SessionLocal() as db:
+    def get(self, *, id: UUID, db: Session) -> ModelType:
+        with db:
             return db.query(self.model).filter(self.model.id == id).first()
 
     def get_multi(
@@ -44,17 +45,18 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         limit: int = 10,
         order_by: str | None = None,
         date_range: dict[str, date] | None = None,
-        values: tuple[str] | None = None
+        values: tuple[str] | None = None,
+        db: Session
     ) -> list[ModelType | dict[str, Any]]:
-        with SessionLocal() as db:
+        with db:
             try:
                 return db.query(self.model).offset(skip).limit(limit).all()
             except IntegrityError as e:
                 raise ORMError(str(e))
 
-    def update(self, *, id: UUID, obj_in: UpdateSchemaType) -> ModelType:
+    def update(self, *, id: UUID, obj_in: UpdateSchemaType, db: Session) -> ModelType:
         obj_data = obj_in.dict()
-        with SessionLocal() as db:
+        with db:
             try:
                 db_obj = db.get(self.model, id)
 
@@ -74,8 +76,8 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
             except IntegrityError as e:
                 raise ORMError(str(e))
 
-    def delete(self, *, id: int) -> int:
-        with SessionLocal() as db:
+    def delete(self, *, id: int, db: Session) -> int:
+        with db:
             try:
                 obj_db = db.get(self.model, id)
                 db.delete(obj_db)
