@@ -36,4 +36,4 @@ class UserSearch(BaseModel):
     email__icontains: str | None = Field(None, alias="email")
 
     class Config:
-        allow_population_by_field_name = True
+        populate_by_name = True

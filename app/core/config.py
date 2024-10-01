@@ -6,7 +6,7 @@ from app.core.settings.app import AppSettings
 from app.core.settings.base import AppEnv, BaseAppSettings
 from app.core.settings import DevelopAppSettings
 
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 
 environments: Dict[AppEnv, Type[AppSettings]] = {
