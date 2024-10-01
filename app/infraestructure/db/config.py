@@ -1,5 +1,5 @@
 from app.infraestructure.db.utils.base import Base
-from app.infraestructure.db.utils import session
+from app.infraestructure.db.utils import postgres_session
 
 #User Services
 from app.services.users.user import user_svc
