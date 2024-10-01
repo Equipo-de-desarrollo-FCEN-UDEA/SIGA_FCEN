@@ -1,6 +1,6 @@
 from uuid import UUID
-from app.infraestructure.db.utils.mongo_base import MongoBase
+from odmantic import Field, Model
 
-class Professor(MongoBase):
-    id_postgres: UUID
+class Professor(Model):
+    id_postgres: UUID = Field(primary_field=True) 
     type: str
