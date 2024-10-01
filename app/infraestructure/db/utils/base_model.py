@@ -1,4 +1,4 @@
-from app.infraestructure.db.postgres_utils.base import Base
+from app.infraestructure.db.utils.base import Base
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy import Column, Uuid
 import uuid

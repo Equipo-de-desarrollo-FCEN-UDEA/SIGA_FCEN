@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Uuid, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 
-from app.infraestructure.db.postgres_utils.link_model import LinkModel
+from app.infraestructure.db.utils.link_model import LinkModel
 
 class UserRol(LinkModel):
     user_id = Column(Uuid, ForeignKey("user.id"), primary_key=True)

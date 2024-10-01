@@ -8,7 +8,12 @@ from app.api.middleware.postgres_db import get_db
 
 
 class BaseRouter:
-    def __init__(self, schem_in_db: Type[BaseModel], schem_create: Type[BaseModel], schem_update: Type[BaseModel], service, router: APIRouter, methods: list[str] = None, session = get_db):
+    def __init__(self, schem_in_db: Type[BaseModel], 
+                 schem_create: Type[BaseModel], 
+                 schem_update: Type[BaseModel], 
+                 service, 
+                 router: APIRouter, 
+                 methods: list[str] = None, session = get_db):
         self.schem_in_db = schem_in_db
         self.schem_create = schem_create
         self.schem_update = schem_update

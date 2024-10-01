@@ -2,7 +2,7 @@ from sqlalchemy import Column, String, Boolean, Enum
 from sqlalchemy.orm import relationship, Mapped
 from typing import TYPE_CHECKING
 
-from app.infraestructure.db.postgres_utils.base_model import BaseModel
+from app.infraestructure.db.utils.base_model import BaseModel
 
 import enum 
 
