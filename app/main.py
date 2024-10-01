@@ -6,7 +6,7 @@ from app.core.debugger import initialize_fastapi_server_debugger_if_needed
 from app.api.router import api_router
 from app.core.config import settings
 from app.core import exceptions
-# from app.infraestructure.db.postgres_config import init_db
+from app.infraestructure.db.postgres_config import init_db
 from app.infraestructure.security.config import init_security
 
 
@@ -33,7 +33,7 @@ app = create_app()
 @app.on_event("startup")
 def startup_event():
     """Event start up"""
-    # init_db()
+    init_db()
     init_security()
 
 

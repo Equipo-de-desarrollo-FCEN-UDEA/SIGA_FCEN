@@ -7,6 +7,8 @@ from app.services.organization.academic_unit_type import academic_unit_type_svc
 
 from app.api.routes.v1.utils.base_router import BaseRouter
 
+from app.api.middleware.postgres_db import get_db
+
 router = APIRouter()
 
 BaseRouter(
@@ -15,6 +17,7 @@ BaseRouter(
     schem_update=AcademicUnitTypeUpdate,
     service=academic_unit_type_svc,
     router=router,
+    session=get_db,
     methods=["create", "get-all", "get", "update", "delete"]
 )
 

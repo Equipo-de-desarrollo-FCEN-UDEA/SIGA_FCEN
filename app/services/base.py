@@ -25,15 +25,15 @@ class ServiceBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType, CrudTyp
         self.observer = None
         return None
 
-    def create(self, *, obj_in: CreateSchemaType) -> ModelType:
+    def create(self, *, obj_in: CreateSchemaType, db) -> ModelType:
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
-        return self.observer.create(obj_in=obj_in)
+        return self.observer.create(obj_in=obj_in, db=db)
 
-    def get(self, *, id: UUID) -> ModelType:
+    def get(self, *, id: UUID, db) -> ModelType:
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
-        return self.observer.get(id=id)
+        return self.observer.get(id=id, db=db)
 
     def get_multi(
         self,
@@ -43,7 +43,8 @@ class ServiceBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType, CrudTyp
         limit: int = 10,
         order_by: str | None = None,
         date_range: dict[str, date] | None = None,
-        values: tuple[str] | None = None
+        values: tuple[str] | None = None,
+        db
     ) -> list[ModelType | dict[str, Any]]:
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
@@ -54,14 +55,15 @@ class ServiceBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType, CrudTyp
             order_by=order_by,
             date_range=date_range,
             values=values,
+            db = db
         )
 
-    def update(self, *, id: UUID, obj_in: UpdateSchemaType) -> ModelType:
+    def update(self, *, id: UUID, obj_in: UpdateSchemaType, db) -> ModelType:
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
-        return self.observer.update(id=id, obj_in=obj_in)
+        return self.observer.update(id=id, obj_in=obj_in, db=db)
 
-    def delete(self, *, id: int) -> int:
+    def delete(self, *, id: int, db) -> int:
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
-        return self.observer.delete(id=id)
+        return self.observer.delete(id=id, db=db)
