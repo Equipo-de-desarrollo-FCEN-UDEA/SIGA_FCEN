@@ -15,4 +15,4 @@ class StudentUpdate(BaseModel):
     ...
 
 class StudentInDB(StudentBase):
-    pass
+    id: UUID
