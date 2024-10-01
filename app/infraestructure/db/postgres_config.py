@@ -30,20 +30,20 @@ log = get_logger(__name__)
 
 #En este archivo lo que hacemos en crear la session en la base de datos
 
-def init_db() -> None:
-    """si es una base de datos en memoria se deben generar los esquemas inmediatamente"""
+# def init_db() -> None:
+"""si es una base de datos en memoria se deben generar los esquemas inmediatamente"""
 
-    @event.listens_for(base.Base.metadata, 'after_create')
-    def receive_after_create(target, connection, tables, **Kw):
-        for table in tables:
-            log.info(f"Table {table} created")
+# @event.listens_for(base.Base.metadata, 'after_create')
+# def receive_after_create(target, connection, tables, **Kw):
+#         for table in tables:
+#             log.info(f"Table {table} created")
 
     #Base.metadata.create_all(bind=session.engine)
 
-    user_svc.register_observer(user_crud)
-    rol_svc.register_observer(rol_crud)
-    user_rol_svc.register_observer(user_rol_crud)
-    academic_unit_type_svc.register_observer(academic_unit_type_crud)
-    academic_unit_svc.register_observer(academic_unit_crud)
+user_svc.register_observer(user_crud)
+rol_svc.register_observer(rol_crud)
+user_rol_svc.register_observer(user_rol_crud)
+academic_unit_type_svc.register_observer(academic_unit_type_crud)
+academic_unit_svc.register_observer(academic_unit_crud)
 
 

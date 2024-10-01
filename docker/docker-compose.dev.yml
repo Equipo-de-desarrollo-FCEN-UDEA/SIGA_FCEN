@@ -16,7 +16,7 @@ services:
             - auth-network
 
     mongo-db-auth:
-        container_name: 'mongo'
+        container_name: 'mongo-db-auth'
         image: mongo:4.4
         restart: always
         ports:
