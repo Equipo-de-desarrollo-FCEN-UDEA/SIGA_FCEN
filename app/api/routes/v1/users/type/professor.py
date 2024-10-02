@@ -6,7 +6,6 @@ from app.infraestructure.db.models.user.type.professor import Professor
 from app.schemas.users.user import UserInDB
 from app.services.users.type.professor import professor_svc
 from app.services.users.user import user_svc
-from app.api.routes.v1.utils.base_router import BaseRouter
 
 from app.api.middleware.mongo_db import get_mongo_db
 from app.api.middleware.postgres_db import get_db
