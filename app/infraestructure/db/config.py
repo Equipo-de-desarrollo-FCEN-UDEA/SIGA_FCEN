@@ -1,3 +1,5 @@
+from app.infraestructure.db.utils.base import Base
+
 #SERVICES
 from app.services.users.user import user_svc
 from app.services.users.rol import rol_svc

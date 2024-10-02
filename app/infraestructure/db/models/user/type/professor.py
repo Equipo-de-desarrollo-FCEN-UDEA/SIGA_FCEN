@@ -7,6 +7,9 @@ class ProfessorType(str, Enum):
     OCACIONAL = "ocacional"
     CATEDRATICO = "catedratico"
 
+
+
+
 class Professor(Model):
     id_postgres: UUID = Field(primary_field=True) 
     type: str

@@ -16,8 +16,6 @@ environments: Dict[AppEnv, Type[AppSettings]] = {
 }
 
 
-# from pydantic_settings import BaseSettings
-
 
 class Settings(BaseSettings):
     """
@@ -40,6 +38,16 @@ class Settings(BaseSettings):
     SECRET_KEY: str 
 
     ALGORITHM: str = "HS256"
+
+    ## Mongo
+    mongo_user: str
+    mongo_password: str
+    mongo_url:str
+    mongo_db:str
+
+    #: Postgres database url
+    database_url:str
+
 
 
 @lru_cache()

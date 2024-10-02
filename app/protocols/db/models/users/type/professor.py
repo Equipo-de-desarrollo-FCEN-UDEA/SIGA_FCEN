@@ -6,7 +6,14 @@ class ProfessorType(str, Enum):
     VINCULADO = "vinculado"
     OCACIONAL = "ocacional"
     CATEDRATICO = "catedratico"
+
+class Position(str, Enum):
+    AUXILIAR = "auxiliar"
+    ASISTENTE = "asistente"
+    ASOCIADO = "asociado"
+    TITULAR = "titular"
     
 class Professor(LinkModel):
     id_postgres: UUID
-    type: str
+    type: ProfessorType
+    position: Position
