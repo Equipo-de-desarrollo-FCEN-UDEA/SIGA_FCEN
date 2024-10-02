@@ -30,5 +30,7 @@ class User(BaseModel):
 
 
     # # relations
-    user_roles = relationship("UserRol", back_populates="user")
+    # user_roles = relationship("UserRol", back_populates="user")
     user_academic_units = relationship("UserAcademicUnit", back_populates="user")
+
+    roles = relationship("Rol", secondary="user_rol", back_populates="users")

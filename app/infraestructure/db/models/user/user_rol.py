@@ -8,5 +8,5 @@ class UserRol(LinkModel):
     rol_id = Column(Uuid, ForeignKey("rol.id"), primary_key=True)
     is_active = Column(Boolean, nullable=False, default=True)
 
-    user = relationship("User", back_populates="user_roles")
-    rol = relationship("Rol", back_populates="user_roles")
+    # user = relationship("User", back_populates="user_roles")
+    # rol = relationship("Rol", back_populates="user_roles")

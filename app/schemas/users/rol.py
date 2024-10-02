@@ -17,4 +17,10 @@ class RolUpdate(BaseModel):
     
 class RolInDB(GeneralResponse, RolBase):
     ...
+
+class Rol(RolBase):
+    id: UUID
+    
+    class Config:
+        orm_mode = True
     

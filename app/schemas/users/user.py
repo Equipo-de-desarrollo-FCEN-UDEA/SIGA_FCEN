@@ -1,6 +1,9 @@
 from pydantic import BaseModel, Field, EmailStr
+from uuid import UUID
 
 from app.schemas.utils.base_model import GeneralResponse
+from app.schemas.users.rol import Rol
+from app.schemas.users.user_rol import UserRol
 
 from app.infraestructure.db.models.user.user import IdentificationType
 
@@ -37,3 +40,10 @@ class UserSearch(BaseModel):
 
     class Config:
         populate_by_name = True
+
+class User(UserBase):
+    id: UUID
+    roles: list[Rol] = []
+
+    class Config:
+        orm_mode = True
