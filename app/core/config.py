@@ -40,8 +40,6 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
 
     ## Mongo
-    mongo_user: str
-    mongo_password: str
     mongo_url:str
     mongo_db:str
 
