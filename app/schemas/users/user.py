@@ -8,9 +8,9 @@ from app.schemas.users.user_rol_academic_unit import UserRolAcademicUnit
 from app.infraestructure.db.models.user.user import IdentificationType
 
 class UserBase(BaseModel):
-    email: EmailStr
     name: str
     last_name: str
+    email: EmailStr
     identification_type: IdentificationType
     identification_number: str
     phone: str | None
@@ -43,7 +43,7 @@ class UserSearch(BaseModel):
 
 class User(UserBase):
     id: UUID
-    roles: list[Rol] = []
+    user_roles_academic_units: list[UserRolAcademicUnit]
 
     class Config:
-        orm_mode = True
+        from_attributes = True

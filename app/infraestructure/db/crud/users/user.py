@@ -10,9 +10,7 @@ class UserCrud(CRUDBase[User, UserCreate, UserUpdate]):
 
     def get(self, *, id: UUID, db: Session) -> User:
         with db:
-            return db.query(self.model).options(
-                joinedload(User.roles)
-            ).get(id)
+            return db.query(self.model).get(id)
 
 
 user_crud = UserCrud(User)

@@ -2,7 +2,7 @@ from uuid import UUID
 from fastapi import APIRouter, HTTPException, Depends
 
 from app.schemas.users.user import UserCreate, UserUpdate, UserInDB, User
-from app.schemas.users.user_rol_academic_unit import UserRolAcademicUnitCreate
+from app.schemas.users.user_rol_academic_unit import UserRolAcademicUnitCreate, UserRolAcademicUnit, UserRolAcademicUnitInDB
 from app.services.users.user import user_svc
 from app.services.users.user_rol_academic_unit import user_rol_academic_unit_svc
 
@@ -42,7 +42,17 @@ def get_user(*, id: UUID, db_postgres = Depends(get_db)) -> User:
     user = user_svc.get(id=id, db=db_postgres)
     if not user:
         raise HTTPException(404, "User not found")
-    return user
+    user = UserInDB.model_validate(user)
+    roles = user_rol_academic_unit_svc.get_by_user_id(user_id=id, db=db_postgres)
+
+    user_roles_academic_units = [UserRolAcademicUnit.model_validate(role) for role in roles]
+
+    response = User(
+        **user.model_dump(),
+        user_roles_academic_units=user_roles_academic_units
+    )
+
+    return response
 
 
 @router.patch("/{id}", response_model=None)

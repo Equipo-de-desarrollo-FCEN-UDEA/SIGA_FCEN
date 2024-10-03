@@ -10,4 +10,6 @@ class UserRolAcademicUnit(LinkModel):
     is_active = Column(Boolean, nullable=False, default=True)
 
     # user = relationship("User", back_populates="user_roles")
-    # rol = relationship("Rol", back_populates="user_roles")
+    user = relationship("User", back_populates="user_roles_academic_units")
+    rol = relationship("Rol", back_populates="user_roles_academic_unit")
+    academic_unit = relationship("AcademicUnit", back_populates="user_rol_academic_units")

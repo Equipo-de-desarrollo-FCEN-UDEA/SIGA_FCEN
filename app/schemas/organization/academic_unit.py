@@ -21,3 +21,9 @@ class AcademicUnitUpdate(BaseModel):
 class AcademicUnitInDB(GeneralResponse, AcademicUnitBase):
     ...
     
+class AcademicUnit(BaseModel):
+    name: str
+    
+    class Config:
+        orm_mode = True
+        from_attributes = True

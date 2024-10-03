@@ -2,6 +2,10 @@ from pydantic import BaseModel
 
 from app.schemas.utils.link_model import GeneralResponse
 
+from app.schemas.organization.academic_unit import AcademicUnit
+from app.schemas.users.rol import Rol
+
+
 from uuid import UUID
 
 class UserRolAcademicUnitBase(BaseModel):
@@ -20,8 +24,10 @@ class UserRolAcademicUnitUpdate(BaseModel):
 class UserRolAcademicUnitInDB(GeneralResponse, UserRolAcademicUnitBase):
     ...
 
-class UserRolAcademicUnit(UserRolAcademicUnitBase):
-    id: UUID
-    
+class UserRolAcademicUnit(BaseModel):
+    rol: Rol
+    academic_unit: AcademicUnit
+
     class Config:
         orm_mode = True
+        from_attributes = True

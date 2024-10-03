@@ -3,7 +3,14 @@ from app.schemas.users.user_rol_academic_unit import UserRolAcademicUnitCreate, 
 from app.protocols.db.models.users.user_rol_academic_unit import UserRolAcademicUnit
 from app.protocols.db.crud.users.user_rol_academic_unit import CRUDUserRolAcademicUnitProtocol
 
+from app.errors.base import BaseErrors
+from uuid import UUID
+from sqlalchemy.orm import Session
+
 class UserRolAcademicUnitService(ServiceBase[UserRolAcademicUnit, UserRolAcademicUnitCreate, UserRolAcademicUnitUpdate, CRUDUserRolAcademicUnitProtocol]):
-    ...
+    def get_by_user_id(self, *, user_id: UUID, db: Session) -> UserRolAcademicUnit:
+        if self.observer is None:
+            raise BaseErrors(code=503, detail="Service not available")
+        return self.observer.get_by_user_id(user_id=user_id, db=db)
 
 user_rol_academic_unit_svc = UserRolAcademicUnitService()
