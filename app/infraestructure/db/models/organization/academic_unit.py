@@ -13,7 +13,9 @@ class AcademicUnit(BaseModel):
     # relations    
     academic_unit = relationship("AcademicUnit", remote_side="AcademicUnit.id" ,back_populates="academic_units")
     academic_unit_type = relationship("AcademicUnitType", back_populates="academic_units")
-    user_academic_units = relationship("UserAcademicUnit", back_populates="academic_unit")
+    
     roles = relationship("Rol", back_populates="academic_unit")
 
     academic_units = relationship("AcademicUnit", back_populates="academic_unit", cascade="all, delete-orphan")
+
+    users = relationship("User", secondary="user_rol_academic_unit", back_populates="academic_units")

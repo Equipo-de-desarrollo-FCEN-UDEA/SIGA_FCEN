@@ -2,9 +2,9 @@ from uuid import UUID
 from fastapi import APIRouter, HTTPException, Depends
 
 from app.schemas.users.user import UserCreate, UserUpdate, UserInDB, User
-from app.schemas.users.user_rol import UserRolCreate
+from app.schemas.users.user_rol_academic_unit import UserRolAcademicUnitCreate
 from app.services.users.user import user_svc
-from app.services.users.user_rol import user_rol_svc
+from app.services.users.user_rol_academic_unit import user_rol_academic_unit_svc
 
 from app.api.middleware.postgres_db import get_db
 
@@ -24,8 +24,8 @@ def create_user(*, new_user: UserCreate, rol_id:UUID) -> UserInDB:
     """
 
     user = user_svc.create(obj_in=new_user)
-    user_rol_svc.create(
-        obj_in=UserRolCreate(
+    user_rol_academic_unit_svc.create(
+        obj_in=UserRolAcademicUnitCreate(
             rol_id=rol_id, user_id=user.id
         )
     )

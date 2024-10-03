@@ -3,7 +3,7 @@ from uuid import UUID
 
 from app.schemas.utils.base_model import GeneralResponse
 from app.schemas.users.rol import Rol
-from app.schemas.users.user_rol import UserRol
+from app.schemas.users.user_rol_academic_unit import UserRolAcademicUnit
 
 from app.infraestructure.db.models.user.user import IdentificationType
 
