@@ -17,4 +17,12 @@ class RolUpdate(BaseModel):
     
 class RolInDB(GeneralResponse, RolBase):
     ...
+
+class Rol(BaseModel):
+    name: str
+    description: str
+    
+    class Config:
+        orm_mode = True
+        from_attributes = True
     
