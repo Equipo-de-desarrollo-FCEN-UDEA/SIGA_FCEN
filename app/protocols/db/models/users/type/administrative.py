@@ -1,7 +1,6 @@
+from app.protocols.db.utils.link_model import LinkModel
 from enum import Enum
 from uuid import UUID
-from odmantic import Field, Model
-
 
 class AdministrativeType(str, Enum):
     SECRETARIA = "SECRETARIA"
@@ -17,8 +16,8 @@ class ContractType(str, Enum):
     TEMPORAL = "TEMPORAL"
     CIS="CIS"
 
-class Administrative(Model):
-    id_postgres: UUID = Field(primary_field=True) 
+class Administrative(LinkModel):
+    id_postgres: UUID
     type: str
     contract: str
 

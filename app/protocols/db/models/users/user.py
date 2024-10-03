@@ -4,10 +4,10 @@ from enum import Enum
 
 # Definir el enum para identification_type
 class IdentificationType(Enum):
-    PASAPORTE = "pasaporte"
-    TARJETA_DE_IDENTIDAD = "tarjeta_de_identidad"
-    CEDULA_CIUDADANIA = "cedula_ciudadania"
-    CEDULA_EXTRANJERIA = "cedula_extranjeria"
+    CEDULA_CIUDADANIA = 1
+    CEDULA_EXTRANJERIA = 2
+    PASAPORTE = 3
+    TARJETA_DE_IDENTIDAD = 4
 
 class User(BaseModel):
     name: str

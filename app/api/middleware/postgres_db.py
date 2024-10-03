@@ -1,4 +1,4 @@
-from app.infraestructure.db.utils.session import SessionLocal
+from app.infraestructure.db.utils.postgres_session import SessionLocal
 
 def get_db():
     db = SessionLocal()
