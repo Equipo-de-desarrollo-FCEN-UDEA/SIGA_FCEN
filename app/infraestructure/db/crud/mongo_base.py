@@ -1,4 +1,5 @@
 from typing import Generic, TypeVar, Type
+from uuid import UUID
 
 from odmantic import Model, ObjectId
 from odmantic.session import AIOSession
@@ -17,9 +18,23 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchema]):
         self.model = model
 
     async def get(self, db: AIOSession,
-                  *, id: ObjectId) -> Type[ModelType]:
+                  *, id: UUID) -> ModelType:
+        print(f"ID: {id}")
 
-        return await db.find_one(self.model, self.model.id == id)
+        return await db.find_one(self.model, self.model.id_postgres == id)
+    
+    async def get_multi (
+                    self,
+        *,
+        payload: dict[str] | None = None,
+        skip: int | None = None,
+        limit: int | None = None,
+        order_by: str | None = None,
+        date_range: dict[str] | None = None,
+        values: tuple[str] | None = None,
+        db: AIOSession
+    ) -> list[ModelType]:
+        return await db.find(self.model)
 
     async def create(self, db: AIOSession,
                      *, obj_in: Type[ModelType]) -> Type[ModelType]:

@@ -1,6 +1,8 @@
 from enum import Enum
+from pydantic import BaseModel
 from uuid import UUID
-from odmantic import Field, Model
+
+from app.schemas.users.user import UserInDB
 
 
 class AdministrativeType(str, Enum):
@@ -17,8 +19,25 @@ class ContractType(str, Enum):
     TEMPORAL = "TEMPORAL"
     CIS="CIS"
 
-class Administrative(Model):
-    id_postgres: UUID = Field(primary_field=True) 
-    type: str
-    contract: str
+class AdministrativeBase(BaseModel):
+    id_postgres: UUID
+    type: AdministrativeType
+    contract: ContractType
+
+class AdministrativeCreate(AdministrativeBase):
+    ... 
+
+class AdministrativeUpdate(BaseModel):
+    ...
+
+class AdministrativeInDB(AdministrativeBase):
+    ...
+
+class AdministrativeResponse(UserInDB):
+    administrative: AdministrativeInDB
+
+
+
+
+
 
