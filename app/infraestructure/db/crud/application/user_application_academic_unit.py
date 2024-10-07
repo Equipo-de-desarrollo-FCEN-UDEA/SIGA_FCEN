@@ -1,0 +1,8 @@
+from app.infraestructure.db.crud.base import CRUDBase
+from app.infraestructure.db.models.application.user_application_academic_unit import UserApplicationAcademicUnit
+from app.schemas.application.user_application_academic_unit import UserApplicationAcademicUnitCreate, UserApplicationAcademicUnitUpdate
+
+class UserApplicationAcademicUnitCrud(CRUDBase[UserApplicationAcademicUnit, UserApplicationAcademicUnitCreate, UserApplicationAcademicUnitUpdate]):
+    pass
+
+user_application_academic_unit_crud = UserApplicationAcademicUnitCrud(UserApplicationAcademicUnit)

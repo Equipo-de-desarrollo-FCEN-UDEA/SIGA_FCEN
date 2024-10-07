@@ -1,0 +1,9 @@
+from app.services.base import ServiceBase
+from app.schemas.application.user_application_academic_unit import UserApplicationAcademicUnitCreate, UserApplicationAcademicUnitUpdate
+from app.protocols.db.models.application.user_application_academic_unit import UserApplicationAcademicUnit
+from app.protocols.db.crud.application.user_application_academic_unit import CRUDUserApplicationAcademicUnitProtocol
+
+class UserApplicationAcademicUnitService(ServiceBase[UserApplicationAcademicUnit, UserApplicationAcademicUnitCreate, UserApplicationAcademicUnitUpdate, CRUDUserApplicationAcademicUnitProtocol]):
+    pass
+
+user_application_academic_unit_svc = UserApplicationAcademicUnitService()
