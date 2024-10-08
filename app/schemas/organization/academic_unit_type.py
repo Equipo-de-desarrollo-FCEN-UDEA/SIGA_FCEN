@@ -13,3 +13,9 @@ class AcademicUnitTypeUpdate(BaseModel):
 
 class AcademicUnitTypeInDB(GeneralResponse, AcademicUnitTypeBase):
     ...
+
+class AcademicUnitType(BaseModel):
+    name: str
+
+    class Config:
+        from_attributes = True
