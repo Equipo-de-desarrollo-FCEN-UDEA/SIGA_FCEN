@@ -14,6 +14,9 @@ from app.services.application.application_status import application_status_svc
 from app.services.application.application import application_svc
 from app.services.application.user_application import user_application_svc
 from app.services.application.user_application_academic_unit import user_application_academic_unit_svc
+#VOTING
+from app.services.voting.voting import voting_svc
+from app.services.voting.vote import vote_svc
 
 
 # CRUD
@@ -32,7 +35,10 @@ from app.infraestructure.db.crud.application.application_status import applicati
 from app.infraestructure.db.crud.application.application import application_crud
 from app.infraestructure.db.crud.application.user_application import user_application_crud
 from app.infraestructure.db.crud.application.user_application_academic_unit import user_application_academic_unit_crud
-
+#VOTING
+from app.infraestructure.db.crud.voting.voting import voting_crud
+from app.infraestructure.db.crud.voting.vote import vote_crud
+from app.infraestructure.db.crud.voting.voting_status import voting_status_crud
 
 from sqlalchemy import event
 from app.core.logging import get_logger
@@ -57,5 +63,9 @@ def init_db() -> None:
     application_svc.register_observer(application_crud)
     user_application_svc.register_observer(user_application_crud)
     user_application_academic_unit_svc.register_observer(user_application_academic_unit_crud)
+
+    #voting config
+    voting_svc.register_observer(voting_crud)
+    vote_svc.register_observer(vote_crud)
 
 
