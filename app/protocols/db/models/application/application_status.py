@@ -15,5 +15,6 @@ class ApplicationStatusType(Enum):
     IN_INSTITUTE = "en instituto"
 
 class ApplicationStatus(BaseModel):
-    name: ApplicationStatusType
+    user_application_id: UUID
+    status: ApplicationStatusType
     

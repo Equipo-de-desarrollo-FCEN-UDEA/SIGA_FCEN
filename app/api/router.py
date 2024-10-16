@@ -11,7 +11,7 @@ from app.api.routes.v1.users.type import administrative
 from app.api.routes.v1.organization import academic_unit_type
 from app.api.routes.v1.organization import academic_unit
 
-from app.api.routes.v1 import auth
+from app.api.routes.v1.users import auth
 
 api_router = APIRouter()
 

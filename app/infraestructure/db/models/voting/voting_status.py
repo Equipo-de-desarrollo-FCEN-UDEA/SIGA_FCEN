@@ -9,4 +9,4 @@ class VotingStatus(BaseModel):
     name = Column(Enum(VotingStatusType), nullable=False)
 
     # relations
-    voting = relationship("VotingStatus", back_populates="voting_statuses")
+    voting = relationship("Voting", back_populates="voting_statuses")
