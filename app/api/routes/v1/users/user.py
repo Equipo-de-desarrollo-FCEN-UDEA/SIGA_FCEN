@@ -56,6 +56,7 @@ def get_user(*, id: UUID, db_postgres = Depends(get_db)) -> User:
     )
 
     return response
+    
 
 
 @router.patch("/{id}", response_model=None)

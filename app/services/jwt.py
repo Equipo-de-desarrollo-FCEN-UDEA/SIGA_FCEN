@@ -21,11 +21,11 @@ class JWTService:
         self.observer = None
         return None
 
-    def create_access_token(self, subject: str, expires: int | None) -> str:
+    def create_access_token(self, data: dict, expires: int | None) -> str:
         if not self.observer:
             raise NoObserverRegister(self.__class__.__name__)
         return self.observer.create_access_token(
-            subject, timedelta(hours=expires) if expires else None
+            data, timedelta(hours=expires) if expires else None
         )
 
     def decode_access_token(self, token: str) -> TokenPayload:

@@ -25,6 +25,9 @@ class UserService(ServiceBase[User, UserCreateInDB, UserUpdate, CRUDUserProtocol
         user = self.observer.get_by_email(email=email, db=db)
         crypt_svc.check_password(password, user.hashed_password)
         return user
+    
+    def get_by_email(self, *, email: str, db) -> User:
+        return self.observer.get_by_email(email=email, db=db)
 
 
 user_svc = UserService()

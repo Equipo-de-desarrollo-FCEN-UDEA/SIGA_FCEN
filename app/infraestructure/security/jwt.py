@@ -1,4 +1,4 @@
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, timezone
 
 from jose import jwt as jose_jwt
 from jose.exceptions import JWTError
@@ -9,15 +9,17 @@ from app.schemas.token import TokenPayload
 
 
 class JWT:
-    def create_access_token(self, subject: str, expires_delta: timedelta = None) -> str:
+    def create_access_token(self, data: dict, expires_delta: timedelta = None) -> str:
+        to_encode = data.copy()
         if expires_delta:
-            expires = datetime.utcnow() + expires_delta
+            expires = datetime.now(timezone.utc) + expires_delta
         else:
-            expires = datetime.utcnow() + timedelta(
+            expires = datetime.now(timezone.utc) + timedelta(
                 minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES
             )
+        to_encode.update({"exp": expires})
         token = jose_jwt.encode(
-            {"exp": expires, "sub": str(subject)},
+            to_encode,
             str(settings.SECRET_KEY),
             algorithm=settings.ALGORITHM,
         )
