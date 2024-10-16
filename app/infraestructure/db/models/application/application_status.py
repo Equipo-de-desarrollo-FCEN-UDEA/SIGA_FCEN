@@ -6,7 +6,7 @@ from app.protocols.db.models.application.application_status import ApplicationSt
 
 class ApplicationStatus(BaseModel):
     user_application_id = Column(Uuid, ForeignKey("user_application.id"), nullable=False)
-    name = Column(Enum(ApplicationStatusType), nullable=False)
+    status = Column(Enum(ApplicationStatusType), nullable=False)
 
     # relations
-    user_application = relationship("ApplicationStatus", back_populates="application_statuses")
+    user_application = relationship("UserApplication", back_populates="application_statuses")
