@@ -22,6 +22,4 @@ class UserCrud(CRUDBase[User, UserCreate, UserUpdate]):
                 raise ORMError(f"No user found with email {email}")
             return response
 
-
-
 user_crud = UserCrud(User)
