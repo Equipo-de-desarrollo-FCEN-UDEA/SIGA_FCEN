@@ -6,9 +6,9 @@ from app.protocols.db.models.application.type.mobility import Process, MobilityT
 
 class Mobility(Model):
     id_postgres: UUID = Field(primary_field=True)
-    proccess: Process
-    type: MobilityType
-    purpose: MobilityPurpose
+    process: str
+    type: str
+    purpose: str
     destination_country: str
     destination_institution: str
     date_start: datetime

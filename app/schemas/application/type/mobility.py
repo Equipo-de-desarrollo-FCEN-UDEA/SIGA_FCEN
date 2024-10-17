@@ -4,7 +4,8 @@ from datetime import datetime
 from app.protocols.db.models.application.type.mobility import Process, MobilityType, MobilityPurpose
 
 class MobilityBase(BaseModel):
-    proccess: Process
+    id_postgres: UUID | None = None
+    process: Process
     type: MobilityType
     purpose: MobilityPurpose
     destination_country: str

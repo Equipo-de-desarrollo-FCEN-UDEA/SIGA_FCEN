@@ -1,4 +1,4 @@
-from app.infraestructure.db.crud.base import CRUDBase
+from app.infraestructure.db.crud.mongo_base import CRUDBase
 from app.infraestructure.db.models.application.type.mobility import Mobility
 from app.schemas.application.type.mobility import MobilityCreate, MobilityUpdate
 

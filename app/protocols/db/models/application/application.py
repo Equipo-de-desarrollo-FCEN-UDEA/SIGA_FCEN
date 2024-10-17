@@ -6,6 +6,7 @@ from uuid import UUID
 
 class ApplicationType(Enum):
     FULL_TIME = "Dedicacion exclusiva"
+    MOBILITY = "Movilidad"
 
 
 class Application(BaseModel):
