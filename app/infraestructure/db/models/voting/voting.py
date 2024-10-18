@@ -11,4 +11,3 @@ class Voting(BaseModel):
     academic_unit = relationship("AcademicUnit", back_populates="votings")
     application = relationship("Application", back_populates="votings")
     votes = relationship("Vote", back_populates="voting")
-    voting_statuses = relationship("VotingStatus", back_populates="voting")

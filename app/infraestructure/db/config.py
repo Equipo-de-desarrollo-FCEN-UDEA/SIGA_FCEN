@@ -42,7 +42,6 @@ from app.infraestructure.db.crud.application.type.mobility import mobility_crud
 #VOTING
 from app.infraestructure.db.crud.voting.voting import voting_crud
 from app.infraestructure.db.crud.voting.vote import vote_crud
-from app.infraestructure.db.crud.voting.voting_status import voting_status_crud
 
 from sqlalchemy import event
 from app.core.logging import get_logger

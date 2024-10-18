@@ -6,4 +6,3 @@ from uuid import UUID
 class UserApplication(BaseModel):
     user_id: UUID
     application_id: UUID
-    application_status_id: UUID
