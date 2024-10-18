@@ -10,7 +10,6 @@ from app.services.users.type.administrative import administrative_svc
 from app.services.organization.academic_unit_type import academic_unit_type_svc
 from app.services.organization.academic_unit import academic_unit_svc
 #application services
-from app.services.application.application_status import application_status_svc
 from app.services.application.application import application_svc
 from app.services.application.user_application import user_application_svc
 from app.services.application.user_application_academic_unit import user_application_academic_unit_svc
@@ -34,7 +33,6 @@ from app.infraestructure.db.crud.users.type.administrative import administrative
 from app.infraestructure.db.crud.organization.academic_unit_type import academic_unit_type_crud
 from app.infraestructure.db.crud.organization.academic_unit import academic_unit_crud
 #application crud
-from app.infraestructure.db.crud.application.application_status import application_status_crud
 from app.infraestructure.db.crud.application.application import application_crud
 from app.infraestructure.db.crud.application.user_application import user_application_crud
 from app.infraestructure.db.crud.application.user_application_academic_unit import user_application_academic_unit_crud
@@ -65,7 +63,6 @@ def init_db() -> None:
     administrative_svc.register_observer(administrative_crud)
 
     #application config
-    application_status_svc.register_observer(application_status_crud)
     application_svc.register_observer(application_crud)
     user_application_svc.register_observer(user_application_crud)
     user_application_academic_unit_svc.register_observer(user_application_academic_unit_crud)
