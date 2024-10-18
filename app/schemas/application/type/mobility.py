@@ -3,6 +3,11 @@ from uuid import UUID
 from datetime import datetime
 from app.protocols.db.models.application.type.mobility import Process, MobilityType, MobilityPurpose
 
+class Status(BaseModel):
+    name: str
+    updated_by: str
+    date: datetime
+
 class MobilityBase(BaseModel):
     id_postgres: UUID | None = None
     process: Process
@@ -14,6 +19,7 @@ class MobilityBase(BaseModel):
     date_end: datetime
     total_time: int #tiempo total en meses
     date_report: datetime
+    status: list[Status] | None = []
 
 class MobilityCreate(MobilityBase):
     pass

@@ -18,6 +18,11 @@ class MobilityPurpose(Enum):
     PROFESSIONAL_PRACTICE = "Práctica Profesional"
     ACADEMIC_EXCHANGE = "Intercambio Académico"
 
+class Status(LinkModel):
+    name: str
+    updated_by: str
+    date: datetime
+
 class Mobility(LinkModel):
     id_postgres: UUID
     proccess: Process

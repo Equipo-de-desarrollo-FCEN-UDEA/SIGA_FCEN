@@ -4,6 +4,12 @@ from uuid import UUID
 
 from app.protocols.db.models.application.type.mobility import Process, MobilityType, MobilityPurpose
 
+class Status(Model):
+    name: str
+    updated_by: str
+    date: datetime
+
+
 class Mobility(Model):
     id_postgres: UUID = Field(primary_field=True)
     process: str
@@ -15,3 +21,4 @@ class Mobility(Model):
     date_end: datetime
     total_time: int
     date_report: datetime
+    status: list[Status]
