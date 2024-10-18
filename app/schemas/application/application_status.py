@@ -6,11 +6,11 @@ from app.protocols.db.models.application.application_status import ApplicationSt
 
 class ApplicationStatus(BaseModel):
     user_application_id: UUID
-    status: ApplicationStatusType
+    status: str
 
 class ApplicationStatusCreate(ApplicationStatus):
     pass
 
 class ApplicationStatusUpdate(BaseModel):
     user_application_id: UUID | None = None
-    status: ApplicationStatusType | None = None
+    status: str | None = None

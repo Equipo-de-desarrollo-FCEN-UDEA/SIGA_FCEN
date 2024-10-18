@@ -5,14 +5,14 @@ from uuid import UUID
 
 
 class ApplicationStatusType(Enum):
-    CREATE = "creada"
-    SENT = "enviada"
-    APPROVED = "aprobada"
-    REJECTED = "rechazada"
-    CANCELLED = "cancelada"
-    FINISHED = "finalizada"
-    IN_COUNCIL = "en consejo"
-    IN_INSTITUTE = "en instituto"
+    CREATE = "CREADA"
+    SENT = "ENVIADA"
+    APPROVED = "APROBADA"
+    REJECTED = "RECHAZADA"
+    CANCELLED = "CANCELADA"
+    FINISHED = "FINALIZADA"
+    IN_COUNCIL = "EN CONCEJO"
+    IN_INSTITUTE = "EN INSTITUTO"
 
 class ApplicationStatus(BaseModel):
     user_application_id: UUID

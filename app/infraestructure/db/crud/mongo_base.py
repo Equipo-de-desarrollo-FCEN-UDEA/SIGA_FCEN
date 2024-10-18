@@ -38,7 +38,10 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchema]):
 
     async def create(self, db: AIOSession,
                      *, obj_in: Type[ModelType]) -> Type[ModelType]:
-        return await db.save(obj_in)
+        try:
+            return await db.save(obj_in)
+        except Exception as e:
+            raise e
 
     async def update(
         self,
