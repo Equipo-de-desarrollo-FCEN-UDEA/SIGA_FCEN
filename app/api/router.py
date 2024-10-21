@@ -11,7 +11,7 @@ from app.api.routes.v1.users.type import administrative
 from app.api.routes.v1.organization import academic_unit_type
 from app.api.routes.v1.organization import academic_unit
 
-from app.api.routes.v1 import auth
+from app.api.routes.v1.users import auth
 
 api_router = APIRouter()
 
@@ -28,3 +28,10 @@ api_router.include_router(administrative.router, prefix="/administrative", tags=
 
 api_router.include_router(academic_unit_type.router, prefix="/academic_unit_type", tags=["academic_unit_type"])
 api_router.include_router(academic_unit.router, prefix="/academic_unit", tags=["academic_unit"])
+
+#application
+from app.api.routes.v1.application import application
+from app.api.routes.v1.application.type import mobility
+
+api_router.include_router(application.router, prefix="/application", tags=["application"])
+api_router.include_router(mobility.router, prefix="/mobility", tags=["mobility"])

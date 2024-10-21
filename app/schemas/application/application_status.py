@@ -5,10 +5,12 @@ from app.schemas.utils.base_model import GeneralResponse
 from app.protocols.db.models.application.application_status import ApplicationStatusType
 
 class ApplicationStatus(BaseModel):
-    name: ApplicationStatusType
+    user_application_id: UUID
+    status: str
 
 class ApplicationStatusCreate(ApplicationStatus):
     pass
 
 class ApplicationStatusUpdate(BaseModel):
-    name: ApplicationStatusType | None
+    user_application_id: UUID | None = None
+    status: str | None = None
