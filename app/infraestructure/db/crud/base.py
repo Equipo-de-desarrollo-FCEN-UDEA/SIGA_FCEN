@@ -22,7 +22,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         self.model = model
 
     def create(self, *, obj_in: CreateSchemaType, db: Session) -> ModelType:
-        obj_in_data = obj_in.dict()
+        obj_in_data = obj_in.model_dump()
         db_obj = self.model(**obj_in_data)
         with db:
             try:

@@ -2,6 +2,10 @@ from datetime import datetime
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException
 from uuid import UUID
+from sqlalchemy.orm import Session
+from pymongo.errors import PyMongoError
+from app.core.exceptions import ORMError
+
 
 from app.api.middleware.bearer import get_current_active_user
 from app.schemas.application.type.mobility import MobilityCreate
@@ -28,20 +32,16 @@ router = APIRouter()
 async def create_mobility(*, 
                           obj_in: MobilityCreate, 
                           db_mongo = Depends(get_mongo_db), 
-                          db_postgres = Depends(get_db),
+                          db_postgres: Session = Depends(get_db),
                           current_user: Annotated[User, Depends(get_current_active_user)]
                           ) -> MobilityCreate:
 
-    user_application = UserApplicationCreate(user_id=current_user.id, application_id="1c779ce5-ce77-49ea-87e2-69a2388e53f2")
-    user_application_in_db = user_application_svc.create(obj_in=user_application, db=db_postgres)
-
-    obj_in.id_postgres = user_application_in_db.id
-    status = ApplicationStatusType.CREATE.value
-
-    obj_in.status += [Status(name=status, updated_by=current_user.name, date=datetime.now())]
-
-    mobility_create = await mobility_svc.create(obj_in=Mobility(**dict(obj_in)), db=db_mongo)
-    
+    mobility_create = await mobility_svc.create(
+        db_mongo=db_mongo,
+        obj_in=obj_in,
+        db_postgres=db_postgres,
+        current_user=current_user
+    )
 
 
     return mobility_create
