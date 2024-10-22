@@ -19,6 +19,7 @@ from app.services.application.type.mobility import mobility_svc
 #VOTING
 from app.services.voting.voting import voting_svc
 from app.services.voting.vote import vote_svc
+from app.services.voting.vote_type import vote_type_svc
 
 
 # CRUD
@@ -42,6 +43,7 @@ from app.infraestructure.db.crud.application.type.mobility import mobility_crud
 #VOTING
 from app.infraestructure.db.crud.voting.voting import voting_crud
 from app.infraestructure.db.crud.voting.vote import vote_crud
+from app.infraestructure.db.crud.voting.vote_type import vote_type_crud
 
 from sqlalchemy import event
 from app.core.logging import get_logger
@@ -71,5 +73,4 @@ def init_db() -> None:
     #voting config
     voting_svc.register_observer(voting_crud)
     vote_svc.register_observer(vote_crud)
-
-
+    vote_type_svc.register_observer(vote_type_crud)
