@@ -7,3 +7,6 @@ async def get_mongo_db():
         yield db
     finally:
         await db.end()
+
+async def get_mongo_engine():
+    return engine

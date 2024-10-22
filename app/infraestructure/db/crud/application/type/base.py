@@ -1,12 +1,12 @@
 from datetime import datetime
 from typing import TypeVar
 from fastapi import HTTPException
-from odmantic import Model
+from odmantic import AIOEngine, Model
 from pydantic import BaseModel
 from app.core.exceptions import ORMError
 from pymongo.errors import PyMongoError
 from app.infraestructure.db.crud.mongo_base import CRUDBase
-from app.infraestructure.db.models.application.type.mobility import Status
+from app.schemas.application.user_application import UserApplicationStatus
 
 from app.infraestructure.db.models.application.user_application import UserApplication
 from app.schemas.application.user_application import UserApplicationCreate
@@ -39,7 +39,7 @@ class ApplicationTypeBaseCrud(CRUDBase[ModelType, CreateSchemaType, UpdateSchema
                 obj_in.id_postgres = db_obj.id
 
                 status = ApplicationStatusType.CREATE.value
-                obj_in.status += [Status(name=status, updated_by=current_user.name, date=datetime.now())]
+                obj_in.status += [UserApplicationStatus(name=status, updated_by=current_user.id, date=datetime.now())]
                 
                 obj_create = await super().create(db_mongo, obj_in=self.model(**dict(obj_in)))
                 db_postgres.commit()
@@ -54,3 +54,13 @@ class ApplicationTypeBaseCrud(CRUDBase[ModelType, CreateSchemaType, UpdateSchema
 
         
         return obj_create
+    
+    async def add_status(self, db_mongo, *, new_status: UserApplicationStatus, user_application_id) -> None:
+        try: 
+            resultado = await db_mongo.get_collection(self.model).update_one(
+                {"_id": user_application_id},
+                {"$push": {"status": new_status.model_dump()}}
+            )
+
+        except Exception as e:
+            raise ORMError(str(e))
