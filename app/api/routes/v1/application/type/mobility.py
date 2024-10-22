@@ -40,7 +40,8 @@ async def create_mobility(*,
         db_mongo=db_mongo,
         obj_in=obj_in,
         db_postgres=db_postgres,
-        current_user=current_user
+        current_user=current_user,
+        application_id="1c779ce5-ce77-49ea-87e2-69a2388e53f2"
     )
 
 
