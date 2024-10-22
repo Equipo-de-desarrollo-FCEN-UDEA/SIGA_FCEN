@@ -11,14 +11,13 @@ from app.api.middleware.bearer import get_current_active_user
 from app.schemas.application.type.mobility import MobilityCreate
 
 from app.schemas.application.user_application import UserApplicationCreate
-from app.schemas.application.application_status import ApplicationStatusCreate
-from app.protocols.db.models.application.application_status import ApplicationStatusType
+from app.protocols.db.models.application.application import ApplicationStatusType
+
 
 from app.schemas.users.user import User
 from app.infraestructure.db.models.application.type.mobility import Mobility, Status
 from app.services.application.type.mobility import mobility_svc
 from app.services.application.user_application import user_application_svc
-from app.services.application.application_status import application_status_svc
 
 from app.api.routes.v1.utils.base_router import BaseRouter
 

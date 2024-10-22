@@ -10,7 +10,7 @@ from app.infraestructure.db.models.application.type.mobility import Status
 
 from app.infraestructure.db.models.application.user_application import UserApplication
 from app.schemas.application.user_application import UserApplicationCreate
-from app.protocols.db.models.application.application_status import ApplicationStatusType
+from app.protocols.db.models.application.application import ApplicationStatusType
 
 from app.schemas.users.user import User
 

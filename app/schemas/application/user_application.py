@@ -13,7 +13,6 @@ class UserApplicationCreate(UserApplicationBase):
 class UserApplicationUpdate(BaseModel):
     user_id: UUID | None
     application_id: UUID | None
-    application_status_id: UUID | None
 
 class UserApplicationCreateInDB(GeneralResponse, UserApplicationBase):
     pass
