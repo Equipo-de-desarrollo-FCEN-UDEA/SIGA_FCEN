@@ -7,11 +7,15 @@ from sqlalchemy.orm import Session
 from app.api.middleware.bearer import get_current_active_user
 from app.schemas.application.type.mobility import MobilityCreate, Mobility, MobilityUpdate
 
+from app.schemas.application.user_application import UserApplicationCreate
+from app.protocols.db.models.application.application import ApplicationStatusType
+
 
 from app.schemas.application.user_application import UserApplicationStatus
 from app.schemas.users.user import User
 
 from app.services.application.type.mobility import mobility_svc
+from app.services.application.user_application import user_application_svc
 
 from app.api.middleware.mongo_db import get_mongo_db, get_mongo_engine
 from app.api.middleware.postgres_db import get_db
