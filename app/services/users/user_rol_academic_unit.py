@@ -12,5 +12,8 @@ class UserRolAcademicUnitService(ServiceBase[UserRolAcademicUnit, UserRolAcademi
         if self.observer is None:
             raise BaseErrors(code=503, detail="Service not available")
         return self.observer.get_by_user_id(user_id=user_id, db=db)
+    
+    def get_student_committee(self, *, user_id:UUID, db:Session) -> UUID:
+        return self.observer.get_student_committee(user_id=user_id, db=db)
 
 user_rol_academic_unit_svc = UserRolAcademicUnitService()

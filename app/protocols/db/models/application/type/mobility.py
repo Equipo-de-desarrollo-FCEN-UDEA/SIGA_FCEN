@@ -34,3 +34,4 @@ class Mobility(LinkModel):
     date_end: datetime
     total_time: int #tiempo total en meses
     date_report: datetime
+    status: list[Status]

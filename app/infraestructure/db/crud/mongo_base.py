@@ -50,7 +50,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchema]):
         db_obj: Type[ModelType],
         obj_in: Type[UpdateSchema]
     ) -> Type[ModelType]:
-        db_obj.update(obj_in)
+        db_obj.model_update(obj_in)
         return await db.save(db_obj)
 
     async def delete(self, db: AIOSession, *, id: ObjectId) -> Type[ModelType]:
