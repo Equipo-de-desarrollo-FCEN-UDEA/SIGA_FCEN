@@ -29,6 +29,11 @@ api_router.include_router(administrative.router, prefix="/administrative", tags=
 api_router.include_router(academic_unit_type.router, prefix="/academic_unit_type", tags=["academic_unit_type"])
 api_router.include_router(academic_unit.router, prefix="/academic_unit", tags=["academic_unit"])
 
+#voting
+from app.api.routes.v1.voting import voting
+api_router.include_router(voting.router, prefix="/voting", tags=["voting"])
+
+
 #application
 from app.api.routes.v1.application import application
 from app.api.routes.v1.application.type import mobility
