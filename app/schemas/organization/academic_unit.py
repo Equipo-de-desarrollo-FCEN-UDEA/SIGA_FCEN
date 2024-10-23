@@ -27,3 +27,9 @@ class AcademicUnit(BaseModel):
     class Config:
         orm_mode = True
         from_attributes = True
+
+class AcademicUnits(GeneralResponse):
+    items: list[AcademicUnit]
+
+    class Config:
+        from_attributes = True

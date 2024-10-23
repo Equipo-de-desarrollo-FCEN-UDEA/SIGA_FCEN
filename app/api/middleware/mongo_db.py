@@ -2,11 +2,6 @@ from app.infraestructure.db.utils.mongo_session import engine
 
 async def get_mongo_db():
     try:
-        db = engine.session()
-        await db.start()
-        yield db
+        yield engine
     finally:
-        await db.end()
-
-async def get_mongo_engine():
-    return engine
+        pass
