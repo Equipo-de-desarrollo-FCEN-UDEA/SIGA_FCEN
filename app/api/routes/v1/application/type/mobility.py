@@ -16,22 +16,6 @@ from app.services.application.type.mobility import mobility_svc
 from app.api.middleware.mongo_db import get_mongo_db, get_mongo_engine
 from app.api.middleware.postgres_db import get_db
 
-<<<<<<< Updated upstream
-from app.schemas.application.user_application import UserApplicationCreate
-from app.schemas.application.application_status import ApplicationStatusCreate
-from app.protocols.db.models.application.application_status import ApplicationStatusType
-
-from app.schemas.users.user import User
-from app.infraestructure.db.models.application.type.mobility import Mobility, Status
-from app.services.application.type.mobility import mobility_svc
-from app.services.application.user_application import user_application_svc
-from app.services.application.application_status import application_status_svc
-
-from app.api.routes.v1.utils.base_router import BaseRouter
-
-from app.api.middleware.mongo_db import get_mongo_db
-from app.api.middleware.postgres_db import get_db
-=======
 from app.protocols.db.models.application.application import ApplicationStatusType
 
 from app.schemas.application.user_application_academic_unit import UserApplicationAcademicUnitCreate
@@ -39,7 +23,6 @@ from app.services.application.user_application_academic_unit import user_applica
 
 from app.schemas.voting.voting import VotingCreate
 from app.services.voting.voting import voting_svc
->>>>>>> Stashed changes
 
 
 router = APIRouter()
