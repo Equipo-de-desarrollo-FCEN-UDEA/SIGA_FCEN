@@ -14,3 +14,5 @@ class VoteTypeUpdate(BaseModel):
     name: str | None
     description: str | None
 
+class VoteTypeInDB(VoteTypeBase):
+    id: UUID
