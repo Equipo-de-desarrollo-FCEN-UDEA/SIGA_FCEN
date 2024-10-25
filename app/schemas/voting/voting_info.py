@@ -6,13 +6,13 @@ from pydantic import BaseModel
 from app.protocols.db.models.voting.voting_info import VotingResult
 
 class VotingStatus(BaseModel):
-    result: VotingResult
+    result: str
     date: datetime
     observation: str | None
 
 class VotingInfoBase(BaseModel):
-    id_postgres: UUID | None = None
-    statues: list[VotingStatus] | None = []
+    id_postgres: UUID | None
+    statuses: list[VotingStatus] | None = []
 
 class VotingInfoCreate(VotingInfoBase):
     pass
