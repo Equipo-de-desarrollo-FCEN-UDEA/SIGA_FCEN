@@ -13,3 +13,6 @@ class VotingCreate(VotingBase):
 class VotingUpdate(BaseModel):
     academic_unit_id: UUID | None
     user_application_id: UUID | None
+
+class VotingInDB(VotingBase):
+    id: UUID
