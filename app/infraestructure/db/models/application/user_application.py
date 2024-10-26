@@ -10,5 +10,5 @@ class UserApplication(BaseModel):
     # relations
     user = relationship("User", back_populates="user_applications")
     application = relationship("Application", back_populates="user_applications")
-    application_statuses = relationship("ApplicationStatus", back_populates="user_application")
     user_application_academic_units = relationship("UserApplicationAcademicUnit", back_populates="user_application")
+    votings = relationship("Voting", back_populates="user_application")

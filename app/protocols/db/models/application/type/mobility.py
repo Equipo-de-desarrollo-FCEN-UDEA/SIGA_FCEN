@@ -4,6 +4,8 @@ from uuid import UUID
 
 from enum import Enum
 
+from app.protocols.db.utils.mongo_model import MongoModel
+
 class MobilityType(Enum):
     NATIONAL_OUTGOING = "Saliente Nacional"
     INTERNATIONAL_OUTGOING = "Saliente Internacional"
@@ -23,8 +25,7 @@ class Status(LinkModel):
     updated_by: str
     date: datetime
 
-class Mobility(LinkModel):
-    id_postgres: UUID
+class Mobility(MongoModel):
     proccess: Process
     type: MobilityType
     purpose: MobilityPurpose
@@ -34,3 +35,4 @@ class Mobility(LinkModel):
     date_end: datetime
     total_time: int #tiempo total en meses
     date_report: datetime
+    status: list[Status]

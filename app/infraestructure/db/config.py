@@ -10,7 +10,6 @@ from app.services.users.type.administrative import administrative_svc
 from app.services.organization.academic_unit_type import academic_unit_type_svc
 from app.services.organization.academic_unit import academic_unit_svc
 #application services
-from app.services.application.application_status import application_status_svc
 from app.services.application.application import application_svc
 from app.services.application.user_application import user_application_svc
 from app.services.application.user_application_academic_unit import user_application_academic_unit_svc
@@ -20,6 +19,9 @@ from app.services.application.type.mobility import mobility_svc
 #VOTING
 from app.services.voting.voting import voting_svc
 from app.services.voting.vote import vote_svc
+from app.services.voting.vote_type import vote_type_svc
+from app.services.voting.voting_info import voting_info_svc
+
 
 
 # CRUD
@@ -34,7 +36,6 @@ from app.infraestructure.db.crud.users.type.administrative import administrative
 from app.infraestructure.db.crud.organization.academic_unit_type import academic_unit_type_crud
 from app.infraestructure.db.crud.organization.academic_unit import academic_unit_crud
 #application crud
-from app.infraestructure.db.crud.application.application_status import application_status_crud
 from app.infraestructure.db.crud.application.application import application_crud
 from app.infraestructure.db.crud.application.user_application import user_application_crud
 from app.infraestructure.db.crud.application.user_application_academic_unit import user_application_academic_unit_crud
@@ -44,7 +45,8 @@ from app.infraestructure.db.crud.application.type.mobility import mobility_crud
 #VOTING
 from app.infraestructure.db.crud.voting.voting import voting_crud
 from app.infraestructure.db.crud.voting.vote import vote_crud
-from app.infraestructure.db.crud.voting.voting_status import voting_status_crud
+from app.infraestructure.db.crud.voting.vote_type import vote_type_crud
+from app.infraestructure.db.crud.voting.voting_info import voting_info_crud
 
 from sqlalchemy import event
 from app.core.logging import get_logger
@@ -65,7 +67,6 @@ def init_db() -> None:
     administrative_svc.register_observer(administrative_crud)
 
     #application config
-    application_status_svc.register_observer(application_status_crud)
     application_svc.register_observer(application_crud)
     user_application_svc.register_observer(user_application_crud)
     user_application_academic_unit_svc.register_observer(user_application_academic_unit_crud)
@@ -75,5 +76,5 @@ def init_db() -> None:
     #voting config
     voting_svc.register_observer(voting_crud)
     vote_svc.register_observer(vote_crud)
-
-
+    vote_type_svc.register_observer(vote_type_crud)
+    voting_info_svc.register_observer(voting_info_crud)
