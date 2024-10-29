@@ -36,7 +36,7 @@ def login_access_token(response: Response, form_data: Annotated[OAuth2PasswordRe
         key="access_token",
         value=access_token,
         httponly=True,     # Impide el acceso desde JavaScript
-        secure=False,       # Solo en conexiones HTTPS (requiere HTTPS en producción)
+        secure=True,       # Solo en conexiones HTTPS (requiere HTTPS en producción)
         samesite="Lax",     # Ayuda a prevenir ataques CSRF
         path="/",
     )
