@@ -4,10 +4,10 @@ from enum import Enum
 from uuid import UUID
 
 class VoteType(Enum):
-    POSITIVE = "Positivo"
-    NEGATIVE = "Negativo"
-    ABSTENTION = "Abstencion"
-    CONSENSUS = "Consenso"
+    POSITIVE = "POSITIVO"
+    NEGATIVE = "NEGATIVO"
+    ABSTENTION = "ABSTENCION"
+    CONSENSUS = "CONSENSO"
 
 class Vote(LinkModel):
     voting_id: UUID

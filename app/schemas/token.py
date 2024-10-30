@@ -9,3 +9,5 @@ class Token(BaseModel):
 
 class TokenPayload(BaseModel):
     sub: int | str | None = None
+    scopes: list[str] = []
+
