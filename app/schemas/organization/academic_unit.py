@@ -21,8 +21,9 @@ class AcademicUnitUpdate(BaseModel):
     
 class AcademicUnitInDB(GeneralResponse, AcademicUnitBase):
     ...
-    
+
 class AcademicUnit(BaseModel):
+    id: UUID
     name: str
     academic_unit_type: AcademicUnitType
     
@@ -30,16 +31,13 @@ class AcademicUnit(BaseModel):
         orm_mode = True
         from_attributes = True
 
-class aux (AcademicUnit):
-    academic_units: list[AcademicUnit] = []
+class program(AcademicUnit):
+    pass
 
-    class Config:
-        from_attributes = True
+class Institute(AcademicUnit):
+    academic_units: list[program]
 
-class AcademicUnitWithChildren(AcademicUnit):
-    academic_unit_type: AcademicUnitType
-    academic_units: list[AcademicUnit] = []
-
-    class Config:
-        from_attributes = True
+class School(AcademicUnit):
+    academic_units: list[Institute]
+    
 

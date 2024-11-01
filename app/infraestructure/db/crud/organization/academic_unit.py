@@ -10,7 +10,10 @@ from uuid import UUID
 class AcademicUnitCrud(CRUDBase[AcademicUnit, AcademicUnitCreate, AcademicUnitUpdate]):
     def get(self, *, id: UUID, db: Session) -> AcademicUnit:
         with db:
-            return db.query(AcademicUnit).options(joinedload(AcademicUnit.academic_unit_type), joinedload(AcademicUnit.academic_units).joinedload(AcademicUnit.academic_unit_type)).get(id)
+            return db.query(AcademicUnit).options(
+                joinedload(AcademicUnit.academic_units),
+                joinedload(AcademicUnit.academic_units).joinedload(AcademicUnit.academic_units)
+            ).get(id)
 
 
 academic_unit_crud = AcademicUnitCrud(AcademicUnit)
