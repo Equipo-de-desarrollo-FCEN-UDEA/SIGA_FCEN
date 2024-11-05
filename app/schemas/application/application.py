@@ -15,3 +15,6 @@ class ApplicationUpdate(BaseModel):
     name: str | None
     description: str | None
     academic_unit_id: UUID | None
+
+class Application(ApplicationBase):
+    id: UUID
