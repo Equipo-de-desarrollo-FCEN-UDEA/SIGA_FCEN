@@ -23,3 +23,6 @@ class VotingInDB(VotingBase):
     
 class VotingResponse(GeneralResponse):
     user_application: UserApplicationInfo
+
+    class Config:
+        from_attributes = True

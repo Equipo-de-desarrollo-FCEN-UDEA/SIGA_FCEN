@@ -4,9 +4,13 @@ from fastapi import APIRouter, Depends, Security
 from app.api.middleware.bearer import get_current_active_user
 from app.schemas.users.user import User
 from app.schemas.voting.voting import VotingInDB, VotingResponse
+from app.infraestructure.db.models.voting.voting import Voting
 from app.api.middleware.postgres_db import get_db
+from app.api.middleware.mongo_db import get_mongo_db
 from app.services.voting.voting import voting_svc
 from app.services.users.user_rol_academic_unit import user_rol_academic_unit_svc
+
+from app.infraestructure.policies.voting.voting import get_application_in_mongo
 
 router = APIRouter()
 
@@ -25,3 +29,13 @@ def get_user_votings(
 
     return votings
 
+@router.get("/{voting_id}", response_model=dict, status_code=200)
+async def get_voting(*,
+    voting_id: UUID,
+    db_postgres = Depends(get_db),
+    db_mongo = Depends(get_mongo_db),
+    current_user: Annotated[User, Security(get_current_active_user, scopes=["votante"])]
+) -> dict:
+    voting = voting_svc.get(id=voting_id, db=db_postgres)
+    voting = await get_application_in_mongo(voting=voting, db=db_mongo)
+    return voting

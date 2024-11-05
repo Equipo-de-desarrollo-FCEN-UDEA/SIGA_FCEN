@@ -8,6 +8,9 @@ class ApplicationBase(BaseModel):
     description: str
     academic_unit_id: UUID
 
+    class config:
+        from_attributes = True
+
 class ApplicationCreate(ApplicationBase):
     pass
 
@@ -18,3 +21,8 @@ class ApplicationUpdate(BaseModel):
 
 class Application(ApplicationBase):
     id: UUID
+
+    class Config:
+        from_attributes = True
+
+
