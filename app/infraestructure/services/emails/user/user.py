@@ -17,7 +17,7 @@ def confirm_email(to_name:str, token:str, email):
     msg.set_content(f"""
     Hola {to_name}, 
     Para confirmar tu correo, por favor haz click en el siguiente enlace:
-    http://localhost:8003{settings.API_V1_STR}/auth/activate_account/{token}
+    http://localhost:3000/auth/activate-account/{token}
     """)
     msg['Subject'] = 'Confirmar correo'
     msg['From'] = _my_email
