@@ -38,10 +38,10 @@ async def flux(*, user_application_id, db_mongo, db_postgres, current_user:User)
     print(_next_status)
 
     if _next_status == ApplicationStatusType.IN_COMMITEE.value:
-        print("entrando aquí")
         send_to_academic_unit(academic_unit_id=committee, user_application_id=user_application_id, db=db_postgres)
-        create_voting(academic_unit_id=committee, user_application_id=user_application_id, db=db_postgres)
+        await create_voting(academic_unit_id=committee, user_application_id=user_application_id, db_postgres=db_postgres, db_mongo=db_mongo)
         status = UserApplicationStatus(name=_next_status, updated_by=current_user.id, date=datetime.now())
+        
         new_status = await mobility_svc.add_status(
             db_mongo=db_mongo,
             new_status=status,
