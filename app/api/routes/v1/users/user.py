@@ -13,12 +13,13 @@ router = APIRouter()
 
 @router.post("", response_model=UserInDB, status_code=201)
 def create_user(*, new_user: UserCreate, rol_id:UUID,
-                acadeic_unit_id:UUID, db_postgres = Depends(get_db) ) -> UserInDB:
+                academic_unit_id:UUID, db_postgres = Depends(get_db) ) -> UserInDB:
     user = user_svc.create(obj_in=new_user, db=db_postgres)
     user_rol_academic_unit_svc.create(
         obj_in=UserRolAcademicUnitCreate(
-            rol_id=rol_id, user_id=user.id,
-            academic_unit_id=acadeic_unit_id
+            rol_id=rol_id, 
+            user_id=user.id,
+            academic_unit_id=academic_unit_id
         ),
         db=db_postgres
     )
