@@ -54,6 +54,7 @@ def activate_account(token:str= Body(...), db_postgres:Session = Depends(get_db)
     """ Activate account: Params:
         token: str
     """
+    print('este es el token',Body)
     email = jwt_service.decode_access_token(token).sub
     if not email:
         raise HTTPException(status_code=400, detail="Invalid token")
