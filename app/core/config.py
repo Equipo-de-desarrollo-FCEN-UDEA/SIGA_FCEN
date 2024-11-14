@@ -36,6 +36,9 @@ class Settings(BaseSettings):
 
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 10080
 
+    # App
+    APP_DOMAIN: str
+
     ## JWT
     SECRET_KEY: str
 
